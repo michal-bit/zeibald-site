@@ -1,0 +1,28 @@
+---
+layout: base.njk
+---
+<section class="pj-hero">
+  <div class="wrap">
+    <a class="eyebrow" href="/projects/" style="text-decoration:none">פרויקטים</a>
+    <h1>{{ title }}</h1>
+    {% if description %}<p>{{ description | lines | safe }}</p>{% endif %}
+  </div>
+</section>
+<section class="pj-body">
+  <div class="wrap">
+    {% if cover %}<figure class="pj-cover"><img src="{{ cover }}" alt="{{ title }}"></figure>{% endif %}
+    {% if gallery and gallery.length %}
+    <ul class="pj-gal">
+      {% for img in gallery %}<li><button type="button" data-src="{{ img }}" aria-label="הגדלת תמונה {{ loop.index }}"><img src="{{ img }}" alt="{{ title }} – תמונה {{ loop.index }}" loading="lazy"></button></li>{% endfor %}
+    </ul>
+    {% endif %}
+    <a class="pj-back" href="/projects/">→ לכל הפרויקטים</a>
+  </div>
+</section>
+<dialog class="lb" aria-label="תמונה מוגדלת"><button class="x" type="button" aria-label="סגירה">×</button><img alt=""></dialog>
+<script>
+(function(){var d=document.querySelector('.lb');if(!d||!d.showModal)return;var im=d.querySelector('img');
+  document.querySelectorAll('.pj-gal button').forEach(function(b){b.addEventListener('click',function(){im.src=b.dataset.src;im.alt=b.querySelector('img').alt;d.showModal()})});
+  d.querySelector('.x').addEventListener('click',function(){d.close()});
+  d.addEventListener('click',function(e){if(e.target===d)d.close()});})();
+</script>

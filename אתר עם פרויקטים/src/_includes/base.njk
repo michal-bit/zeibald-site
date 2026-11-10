@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{ title }} | שמואל זייבלד ביטוח ופיננסים</title>
+<meta name="description" content="{{ description or 'פרויקטים של שמואל זייבלד, ביטוח ופיננסים' | truncate(155) }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@400&display=swap">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <span class="badge"><img src="/shield.png" alt=""></span>
+      <span><b>שמואל זייבלד<span class="bt">, ביטוח ופיננסים</span></b><small>מבית נתי קלמן סוכנות לביטוח</small></span>
+    </a>
+    <div class="top-actions">
+      <span class="phone">02-59-40-620</span>
+      <a class="btn alive" href="/#form">בדיקה במתנה</a>
+    </div>
+  </div>
+</header>
+<main>
+{{ content | safe }}
+</main>
+<footer>
+  <div class="wrap">
+    <span><b>שמואל זייבלד, ביטוח ופיננסים</b> מבית נתי קלמן סוכנות לביטוח · <span class="tag">אצלנו, תהיו בטוחים.</span></span>
+    <span dir="ltr">02-59-40-620</span>
+  </div>
+</footer>
+<script>
+(function(){var t=document.querySelector('.top');function f(){document.documentElement.style.setProperty('--th',t.offsetHeight+'px')}f();addEventListener('resize',f)})();
+</script>
+</body>
+</html>

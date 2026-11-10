@@ -1,0 +1,26 @@
+---
+layout: base.njk
+title: פרויקטים
+permalink: /projects/
+---
+<section class="pj-hero">
+  <div class="wrap">
+    <h1>פרויקטים</h1>
+  </div>
+</section>
+<section class="pj-list">
+  <div class="wrap">
+    {% if collections.projectsNewest.length %}
+    <ul class="pj-grid">
+      {% for p in collections.projectsNewest %}
+      <li><a class="pj-card" href="{{ p.url }}">
+        <div class="ph">{% if p.data.cover %}<img src="{{ p.data.cover }}" alt="" loading="lazy">{% endif %}</div>
+        <div class="tx"><h2>{{ p.data.title }}</h2>{% if p.data.description %}<p>{{ p.data.description }}</p>{% endif %}</div>
+      </a></li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p class="pj-empty">עדיין אין פרויקטים.</p>
+    {% endif %}
+  </div>
+</section>
