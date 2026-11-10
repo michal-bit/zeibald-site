@@ -1,0 +1,1266 @@
+<!doctype html>
+<html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>שמואל זייבלד ביטוח ופיננסים</title>
+<meta name="description" content="בדיקה מקיפה של כל התיק הביטוחי והפנסיוני, במתנה. ללא עלות וללא התחייבות.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@400&family=Playpen+Sans+Hebrew:wght@500&display=swap">
+<style>
+/* מבנה: פתיחה נעוצה שמתקדמת עם הגלילה: לוח שנה שדפיו נתלשים (היום→מחר→...→בשנה הבאה), מונה דחיות, ואז "אתם בטוחים?" ענק → כרטיס בדיקה+טופס → אמון → קהילות → כאב → מה בודקים → פנסיה/בריאות → למה אנחנו → חברות → תהליך → המלצות/שאלות → סיום */
+/* כלל החמישית: כל התוכן ב-60% האמצעיים (.wrap); רק פס עליון ופוטר ברוחב מלא */
+/* פונט: Fb Reading Regular בכל האתר, משקל אחד. קובץ הווב (אחרי רכישת הרישיון) נכנס ל-fonts/FbReading-Regular.otf.
+   עד אז: אם הפונט מותקן במחשב הוא נטען מקומית, ואחרת Noto Sans Hebrew. Playpen = כתב היד בשורה "לא היום, אולי מחר..." בלבד */
+@font-face{font-family:"OHYael";font-weight:400;font-style:normal;font-display:swap;
+  src:url("hand-font.woff2") format("woff2"),local("OhYaelLeibushor 1.0 Regular"),local("OhYaelLeibushor1.0-Regular"),local("OhYaelLeibushor 1.0")}
+@font-face{font-family:"FbReading";font-weight:400;font-style:normal;font-display:swap;
+  src:url("fonts/FbReading-Regular.otf") format("opentype"),local("Fb Reading Regular"),local("FbReading-Regular")}
+@font-face{font-family:"FbReading";font-weight:400;font-style:normal;font-display:swap;unicode-range:U+0041-005A,U+0061-007A,U+00C0-00FF;
+  src:url("fonts/FbReadingEng-Regular.otf") format("opentype"),local("FbReadingEng-Regular")}
+:root{
+  --content:60vw;
+  --night:#131A46; --night-2:#1B2458; --deep:#0D1236; --ring:#2F5D5F;
+  --blue:#005D94; --green:#63B242; --green-hi:#2DBE6C; --teal:#1FA79A;
+  --ink:#14193A; --ink-2:#4A5070; --paper:#FFFFFF; --mist:#F2F6F4; --line:#DCE4E1; --on-night:#C9D1EE;
+  --display:"FbReading","Noto Sans Hebrew",Arial,sans-serif;
+  --body:"FbReading","Noto Sans Hebrew",Arial,sans-serif;
+  --hand:"OHYael","Playpen Sans Hebrew","Noto Sans Hebrew",cursive;
+  --r:14px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+b,strong,h1,h2,h3,button,label{font-weight:400}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-weight:400;font-synthesis:none;font-size:17.6px;line-height:1.65;direction:rtl;margin:0;overflow-x:hidden}
+.wrap{width:var(--content);margin-inline:auto}
+.top .wrap,footer .wrap{width:auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1;margin:0;text-wrap:balance}
+h2{font-size:clamp(38.72px,4.4vw,56.32px)}
+h3{font-size:26.4px}
+p{margin:0}
+.eyebrow{font-family:var(--display);font-weight:400;color:var(--green);font-size:clamp(24.64px,2.64vw,31.68px);line-height:1}
+.btn{display:inline-flex;align-items:center;justify-content:center;border:0;cursor:pointer;font-family:var(--display);font-weight:400;font-size:24.64px;line-height:1;padding:14px 34px 12px;border-radius:999px;background:var(--green);color:var(--night);text-decoration:none;white-space:nowrap;transition:transform .15s ease,background .15s ease}
+.btn:hover{background:var(--green-hi);transform:translateY(-2px)}
+.btn:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+.sec{padding-block:clamp(64px,9vw,110px)}
+.todo{display:inline-block;margin-top:14px;padding:6px 12px;border:1.5px dashed #B9C2CF;border-radius:8px;color:#8A93A8;font-size:13.2px}
+
+/* פס עליון */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:31;background:var(--night)}
+.top{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:30;background:rgba(19,26,70,.92);backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,.08)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:10px}
+.brand{display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none;min-width:0}
+.badge{flex:none;width:54px;height:54px;border-radius:50%;background:#fff;border:3px solid var(--teal);display:grid;place-items:center;overflow:hidden}
+.badge img{width:72%;height:72%;object-fit:contain;display:block}
+.brand b{font-family:var(--display);font-size:24.64px;line-height:1;display:block}
+.brand small{display:block;font-size:12.32px;color:var(--on-night);line-height:1.3}
+.top-actions{display:flex;align-items:center;gap:18px}
+.phone{color:#fff;font-family:var(--display);font-size:clamp(26.4px,2.29vw,33.44px);letter-spacing:.03em;direction:ltr;white-space:nowrap}
+.top .btn{font-size:19.36px;padding:10px 22px 8px}
+.btn.alive{position:relative;overflow:hidden;background:linear-gradient(110deg,var(--green),var(--green-hi),var(--teal),var(--green));background-size:300% 100%;animation:flow 5s linear infinite,nudge 4.5s ease-in-out infinite}
+.btn.alive::after{content:"";position:absolute;top:-30%;bottom:-30%;width:34%;left:-50%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.8),transparent);transform:skewX(-20deg);animation:glint 3.2s ease-in-out infinite}
+@keyframes flow{to{background-position:300% 0}}
+@keyframes glint{0%,55%{left:-50%}85%,100%{left:130%}}
+@keyframes nudge{0%,70%,100%{transform:none}76%{transform:scale(1.07) rotate(-2deg)}82%{transform:scale(1.04) rotate(2deg)}88%{transform:scale(1.06)}}
+
+/* פתיחה נעוצה */
+.intro{position:relative;z-index:2;height:540vh;background:var(--night);color:#fff}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow-x:clip;overflow-y:visible;display:grid;place-items:center}
+.stage canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.halo{position:fixed;inset:0;z-index:20;pointer-events:none;mix-blend-mode:screen;background:radial-gradient(600px circle at var(--hx,50%) var(--hy,45%),rgba(45,190,108,.20),rgba(31,167,154,.10) 38%,transparent 68%);transition:opacity .4s ease}
+.stage .wrap{position:relative;height:100%;display:grid;place-items:center;padding-top:72px}
+.layer{grid-area:1/1;display:grid;justify-items:center;align-content:center;gap:22px;text-align:center;width:100%;will-change:transform,opacity}
+
+.later{position:relative;font-family:var(--hand);font-size:clamp(34px,3.4vw,50px);color:var(--on-night);transform:rotate(-3deg)}
+.later svg{position:absolute;inset:-6px -12px;width:calc(100% + 24px);height:calc(100% + 12px);overflow:visible}
+.later path{stroke:var(--green);stroke-width:5;fill:none;stroke-linecap:round;stroke-dasharray:420;stroke-dashoffset:420}
+
+.cal{position:relative;width:min(340px,70vw);aspect-ratio:1/1.05;perspective:1200px}
+.page{position:absolute;inset:0;background:#fff;border-radius:22px;display:grid;grid-template-rows:auto 1fr auto;overflow:hidden;transform-origin:50% 0;box-shadow:0 2px 0 #D4DBE8,0 24px 50px -18px rgba(0,0,0,.6);backface-visibility:hidden}
+.page .bar{background:var(--green);height:64px;position:relative}
+.page .bar::before,.page .bar::after{content:"";position:absolute;top:-14px;width:16px;height:40px;border-radius:8px;background:var(--night);box-shadow:inset 0 0 0 4px #D4DBE8}
+.page .bar::before{right:28%}.page .bar::after{left:28%}
+.page .word{display:grid;place-items:center;font-family:var(--display);font-weight:400;color:var(--night);font-size:clamp(42px,4.6vw,68px);line-height:.78;letter-spacing:-.035em;padding:0 16px}
+.page .word.last{font-size:clamp(34px,3.6vw,52px);display:flex;flex-direction:column;justify-content:center;align-items:center}
+.page .word.last .tm{display:block;font-size:1.9em;line-height:.8;color:var(--night)}
+.ring{position:absolute;aspect-ratio:1/1;pointer-events:none;will-change:transform}
+.ring svg{width:100%;height:100%;overflow:visible;display:block}
+.ring circle{fill:none;stroke-width:11;stroke-linecap:round;opacity:.42;stroke:#2DBE6C;filter:drop-shadow(0 0 10px rgba(45,190,108,.35));pointer-events:visibleStroke;cursor:default;transition:opacity .35s ease,stroke .35s ease,filter .35s ease,stroke-width .35s ease}
+.ring circle:hover{opacity:.9;stroke:#39E37A;stroke-width:12;filter:drop-shadow(0 0 6px rgba(57,227,122,.8)) drop-shadow(0 0 18px rgba(45,190,108,.5))}
+.ra{width:78vmin;top:-22vmin;left:62vw}
+.rb{width:58vmin;bottom:-18vmin;left:-14vmin}
+.rc{width:34vmin;top:18vh;left:6vw}
+.rd{width:62vmin;top:12vh;left:56vw}
+.re{width:46vmin;top:4vh;left:-14vmin}
+.stage .wrap,.final .wrap{pointer-events:none}
+.final .wrap>*,.ask .lede{pointer-events:auto}
+.page .task{font-family:var(--hand);font-weight:400;color:var(--blue);font-size:30px;padding:0 0 20px;letter-spacing:0}
+.page .task s{text-decoration-color:var(--green);text-decoration-thickness:3px}
+
+.counter{font-family:var(--display);font-size:26.4px;color:var(--on-night);display:flex;gap:10px;align-items:baseline}
+.counter b{color:var(--green);font-size:40.48px;min-width:1.2ch;display:inline-block;font-variant-numeric:tabular-nums}
+.hint{position:absolute;bottom:max(28px,env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);font-size:12.32px;color:var(--on-night);display:grid;justify-items:center;gap:6px;letter-spacing:.04em}
+.hint i{width:2px;height:44px;background:linear-gradient(var(--green),transparent);animation:drip 1.6s ease-in-out infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+.ask h1{font-size:clamp(96.8px,13.2vw,228.8px);line-height:.82;letter-spacing:-.05em;word-spacing:.04em}
+.ask h1 .q{color:var(--green);display:inline-block}
+.ask .lede{font-size:clamp(21.12px,2.02vw,28.16px);line-height:1.15;color:#D6DCF2;max-width:none}
+.ask .lede span{display:block;white-space:nowrap}
+@media (max-width:900px){.ask .lede span{display:inline;white-space:normal}}
+.ask .row{margin-top:22px;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:16px}
+.gift{display:inline-flex;align-items:center;gap:10px;padding:8px 16px 8px 8px;border-radius:999px;background:rgba(99,178,66,.14);border:1px solid rgba(99,178,66,.5)}
+.toggle{width:44px;height:24px;border-radius:999px;background:var(--green);position:relative;flex:none}
+.toggle::after{content:"";position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#fff}
+.gift b{font-family:var(--display);font-size:21.12px;font-weight:400;line-height:1}
+
+/* כרטיס בדיקה וטופס */
+.checkform{position:relative;z-index:1;background:var(--night);padding-block:60vh clamp(64px,8vw,100px)}
+.checkform .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(0,0,0,.55)}
+.checkform .list{padding:34px 30px;background:var(--mist)}
+.checkform .fm{padding:34px 30px}
+.scan h3,.checkform h3{font-size:35.2px;color:var(--night)}
+.rows{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:8px}
+.rows li{display:grid;grid-template-columns:28px minmax(0,1fr) auto;align-items:center;gap:10px;padding:12px;border-radius:10px;background:#fff;font-size:14.96px;font-weight:400}
+.rows .q{color:var(--ink-2);font-size:13.2px;font-weight:400}
+.tick{width:26px;height:26px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;transition:all .35s ease}
+.tick svg{width:14px;height:14px;opacity:0;transition:opacity .35s ease}
+.rows li.done .tick{background:var(--green);border-color:var(--green)}
+.rows li.done .tick svg{opacity:1}
+.rows li.done .q{color:var(--blue);font-weight:400}
+form{display:grid;gap:10px}
+.field{display:grid;gap:4px}
+.field label{font-size:12.32px;color:var(--ink-2)}
+.field label .opt{color:var(--ink-2);opacity:.75}
+.field .tz-hint{font-size:12.32px;line-height:1.35;color:var(--blue);margin:2px 0 0}
+input{font:inherit;font-weight:400;font-size:14.96px;padding:11px 14px;border-radius:10px;border:1.5px solid var(--line);background:#fff;color:var(--ink);width:100%}
+input:focus{border-color:var(--teal)}
+.err{color:#B42318;font-size:12.32px}
+form .btn{width:100%;margin-top:6px}
+.fine{font-size:12.32px;color:var(--ink-2);text-align:center}
+.thanks{text-align:center;padding:22px 6px;display:grid;gap:8px}
+.thanks h3{color:var(--night)}
+.scan{background:#fff;color:var(--ink);border-radius:20px;padding:26px}
+/* אמון */
+.trust{background:var(--paper);color:var(--ink);border-bottom:1px solid var(--line)}
+.trust .wrap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));row-gap:clamp(40px,5vw,64px);column-gap:0;padding-block:clamp(80px,9vw,130px);text-align:center;align-items:start}
+.stat{display:grid;gap:0;justify-items:center;align-content:start;padding:2px clamp(22px,3vw,52px);min-width:0}
+.stat+.stat{border-right:1px solid var(--line)}
+@media (min-width:901px){.trust .wrap{grid-template-columns:repeat(3,max-content)!important;justify-content:center}.stat{padding-inline:clamp(28px,3.6vw,64px)!important}}
+.stat b{display:block;letter-spacing:-.02em;font-family:var(--display);font-size:clamp(33.44px,3.34vw,58.08px);color:var(--blue);line-height:1;font-variant-numeric:tabular-nums}
+.stat b .n{color:var(--green);font-size:inherit;white-space:nowrap}
+.stat b:has(.n){white-space:nowrap}
+.stat>span{color:var(--ink-2);font-size:clamp(16.72px,1.5vw,23.76px);line-height:.98;letter-spacing:-.01em;max-width:20ch}
+/* קהילות: פס כחול נעוץ; ריחוף הופך עיגול למגן; בגלילה המגן גדל וממלא את המסך ומעביר לאזור הבא */
+.communities{position:relative;height:200vh;background:var(--night)}
+.comm-stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:grid;justify-items:center;align-content:start}
+.communities .wrap{display:grid;gap:34px;justify-items:center;text-align:center;padding-top:calc(var(--th,72px) + 10px)}
+.communities h2{font-size:clamp(49.28px,5.28vw,84.48px);color:var(--green);line-height:.95;letter-spacing:-.02em}
+.circles{display:flex;flex-wrap:nowrap;justify-content:center;gap:clamp(8px,1.2vw,20px);width:100%}
+.circle{position:relative;flex:1 1 0;min-width:0;max-width:132px;aspect-ratio:1/1;display:grid;place-items:center;padding:0;text-align:center;cursor:default}
+.circle .ring-s{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.circle .ring-s path{fill:#fff;stroke:var(--teal);stroke-width:3.2;transition:stroke .3s ease,fill .3s ease}
+.circle.sh .ring-s path{stroke:var(--green-hi);filter:drop-shadow(0 0 6px rgba(45,190,108,.6))}
+.circle img,.circle span{position:relative;z-index:1}
+.circle img{width:66%;height:66%;object-fit:contain}
+.circle img.imecha{width:58%;height:58%;object-fit:cover;border-radius:12px}
+.circle span{font-family:var(--display);font-size:clamp(13.2px,1.41vw,21.12px);line-height:.92;color:var(--blue)}
+.zoom{position:absolute;z-index:5;left:0;top:0;width:100px;height:100px;overflow:visible;pointer-events:none;opacity:0;transform-origin:50% 50%}
+.zoom path{fill:var(--mist);stroke:var(--green-hi);stroke-width:3;vector-effect:non-scaling-stroke;filter:drop-shadow(0 0 8px rgba(45,190,108,.45))}
+
+/* כאב */
+.pain{position:relative;z-index:3;overflow:clip;margin-top:-100vh;background:transparent;padding-top:30vh;padding-bottom:16vh}
+.pframe{position:fixed;inset:0;z-index:2;pointer-events:none;visibility:hidden;will-change:transform;background:var(--night)}
+.pframe::before{content:"";position:absolute;top:calc(var(--th,72px) + 12px);left:16px;right:16px;bottom:16px;background:var(--mist);border:8px solid var(--green-hi);box-shadow:0 0 18px rgba(45,190,108,.45),inset 0 0 18px rgba(45,190,108,.25)}
+.pain .wrap{position:relative;z-index:1}
+.pain .wrap{align-items:start;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:64px;align-items:start}
+.pain h2{position:sticky;top:30vh;align-self:start;font-size:clamp(49.28px,5.28vw,91.52px);color:var(--night);line-height:.86;letter-spacing:-.035em}
+.pain h2 .g{color:var(--green)}
+.pain h2 .qm{display:inline-block;color:var(--blue);transform-origin:50% 70%}
+.pain .txt{display:grid;gap:10px;color:var(--ink-2);font-size:clamp(19.36px,1.67vw,24.64px);line-height:1.1;max-width:40ch;padding-block:0 6vh}
+.punch{font-family:var(--display);font-size:35.2px;color:var(--night);line-height:1;border-right:5px solid var(--green);padding-right:16px}
+
+/* מה בודקים */
+.checks h2{color:var(--night);margin:6px 0 40px}
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.card{background:#fff;border-radius:var(--r);padding:26px 22px;display:grid;gap:10px;align-content:start;border:1px solid var(--line)}
+.ic{width:48px;height:48px;border-radius:50%;background:var(--night);display:grid;place-items:center}
+.ic svg{width:24px;height:24px}
+.card h3{color:var(--night)}
+.card p{color:var(--ink-2);font-size:14.08px}
+.cta-row{margin-top:36px;display:flex;justify-content:center}
+.checks .cta-row{margin-top:-6vh;position:relative;z-index:7}
+
+/* פנסיה ובריאות */
+.focus{padding-top:0}
+.focus .wrap{display:grid;gap:28px}
+.focus h2{color:var(--night)}
+.pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.big{border-radius:20px;padding:34px 32px;color:#fff;position:relative;overflow:hidden;display:grid;align-content:end;gap:12px;min-height:300px}
+.big.p{background:var(--blue)}
+.big.h{background:var(--night)}
+.big h3{font-size:52.8px}
+.big p{color:#E3E9F7;max-width:46ch;font-size:14.96px;position:relative}
+.big svg.deco{position:absolute;top:-40px;left:-40px;width:220px;opacity:.22}
+.more{text-align:center;color:var(--ink-2);font-size:14.96px}
+.more b{font-weight:400;color:var(--night)}
+.dot{color:var(--green);padding:0 8px}
+
+/* למה אנחנו */
+.why{background:var(--night);color:#fff}
+.why{position:relative;overflow:hidden}
+.why::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(520px circle at var(--mx,70%) var(--my,30%),rgba(45,190,108,.22),rgba(31,167,154,.10) 35%,transparent 65%);opacity:var(--mo,.6);transition:opacity .4s ease}
+.why .wrap{position:relative}
+.why .grid4{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.why .card{padding:30px 30px 34px}
+.why h2.why-title{font-size:clamp(49.28px,5.28vw,84.48px);color:var(--green);line-height:.95;letter-spacing:-.02em;margin:0 0 40px;text-align:center}
+.why .lead{color:var(--on-night);font-size:16.72px;max-width:62ch;margin-bottom:40px}
+.why .card{background:var(--night-2);border-color:rgba(255,255,255,.1)}
+.why .card h3{color:#fff}
+.why .card p{color:var(--on-night);font-size:clamp(15.84px,1.28vw,19.36px);line-height:1.22}
+.why .card h3{line-height:1}
+.why .card{position:relative;transition:transform .3s ease}
+.why .card:hover{transform:translateY(-4px)}
+.why .card .ink{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.why .card .ink rect{fill:none;stroke:var(--green-hi);stroke-width:3;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset .9s cubic-bezier(.65,0,.35,1);filter:drop-shadow(0 0 6px rgba(45,190,108,.6))}
+.why .card:hover .ink rect{stroke-dashoffset:0}
+.why .ic{background:var(--green)}
+
+/* חברות */
+/* חברות הביטוח: פס לבן עם סמן טורקיז שזז ללוגו שתחת העכבר */
+.cos{background:var(--night)}
+.cos .wrap{display:grid;gap:26px;text-align:center;padding-block:clamp(56px,8vw,96px) 30px}
+.cos h2{font-size:clamp(35.2px,3.87vw,56.32px);color:#fff;line-height:1;letter-spacing:-.01em}
+.co-strip{position:relative;background:#fff;border-radius:999px;padding:10px;overflow:hidden}
+.co-strip ul{position:relative;z-index:1;list-style:none;margin:0;padding:0;display:flex;justify-content:space-between;align-items:center;gap:6px}
+.co-i{flex:1 1 0;min-width:0;height:clamp(54px,5.6vw,78px);display:grid;place-items:center;padding:8px 12px;border-radius:999px;cursor:pointer}
+.co-i img[alt="שלמה"]{max-height:66%;position:relative;top:-5px}
+.co-i img{max-width:100%;max-height:100%;object-fit:contain;transition:transform .35s ease,filter .35s ease;filter:saturate(.9)}
+.co-i.on img{transform:scale(1.08);filter:none}
+.co-ind{position:absolute;z-index:0;top:10px;bottom:10px;border-radius:999px;background:linear-gradient(120deg,#2BB5B0,#1FA79A 60%,#2DBE6C);box-shadow:0 6px 20px -8px rgba(31,167,154,.8);transition:left .5s cubic-bezier(.65,0,.35,1),width .5s cubic-bezier(.65,0,.35,1)}
+@media (max-width:700px){.co-strip{border-radius:24px}.co-strip ul{flex-wrap:wrap;justify-content:center}.co-i{flex:0 0 30%}}
+/* כוח של קבוצה */
+.group{background:var(--night);color:#fff;position:relative;z-index:2}
+.group+.communities{margin-top:-56px}
+.group .wrap{display:grid;gap:18px;text-align:center;justify-items:center;padding-block:clamp(56px,8vw,100px) 0}
+.group h2{font-size:clamp(38.72px,4.4vw,66.88px);line-height:.95;letter-spacing:-.02em}
+.group p{font-size:clamp(21.12px,2.02vw,33.44px);line-height:1.1;color:var(--on-night);max-width:none}
+.group p span{display:block;white-space:nowrap}
+@media (max-width:900px){.group p span{display:inline;white-space:normal}}
+
+/* תהליך */
+/* איך זה עובד: נעוץ, קו חץ מתקדם מתחת לפסקאות; בכל צעד נוצר עיגול מספר והפסקה מחליקה פנימה */
+.steps{position:relative;height:calc(var(--sth,560px) + 170vh);background:var(--paper)}
+.st-stage{position:sticky;top:var(--stt,20vh);display:grid;align-content:start;padding-block:clamp(36px,5vh,56px)}
+.steps h2{color:var(--green);font-size:clamp(59.84px,6.51vw,109.12px);line-height:.9;letter-spacing:-.025em;text-align:center;margin-bottom:4vh}
+.st-row{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto;justify-items:center;width:100%}
+.st-row li{grid-area:1/1;width:100%;display:grid;gap:10px;justify-items:center;text-align:center;opacity:0;transform:translateX(-60px);transition:opacity .45s ease,transform .6s cubic-bezier(.2,.8,.3,1);pointer-events:none}
+.st-row li.cur{opacity:1;transform:none}
+.st-n{width:72px;height:72px;border-radius:50%;background:var(--night);color:var(--green-hi);display:grid;place-items:center;font-family:var(--display);font-size:36.96px;line-height:1;box-shadow:0 12px 28px -10px rgba(19,26,70,.55);margin-bottom:10px;transform:scale(.4);transition:transform .55s cubic-bezier(.34,1.56,.64,1)}
+.st-row li.cur .st-n{transform:scale(1)}
+.st-row li.gone{transform:translateX(60px)}
+.st-row h3{color:var(--night);font-size:clamp(36.96px,3.52vw,59.84px);line-height:.95;letter-spacing:-.02em}
+.st-row p{color:var(--ink-2);font-size:clamp(17.6px,1.54vw,24.64px);line-height:1.1}
+.st-line{position:relative;height:40px;margin-top:3vh}
+.st-svg{position:absolute;left:0;top:20px;width:100%;height:2px;overflow:visible}
+.st-track{stroke:var(--line);stroke-width:6;fill:none;stroke-linecap:round}
+.st-prog{stroke:url(#stg);stroke-width:12;fill:none;stroke-linecap:round;filter:drop-shadow(0 0 6px rgba(45,190,108,.6))}
+.st-head{position:absolute;top:20px;width:0;height:0;border-top:20px solid transparent;border-bottom:20px solid transparent;border-right:32px solid var(--green-hi);transform:translate(-26px,-20px);filter:drop-shadow(0 0 6px rgba(45,190,108,.6))}
+.st-num{display:none;position:absolute;top:45px;width:58px;height:58px;margin:-29px 0 0 -29px;border-radius:50%;background:var(--blue);color:#fff;place-items:center;font-family:var(--display);font-size:28.16px;transform:scale(0);transition:transform .45s cubic-bezier(.34,1.56,.64,1),background .3s;box-shadow:0 0 0 6px var(--paper)}
+.st-num.on{transform:scale(1)}
+.st-num.on.cur{background:var(--green-hi);color:var(--night)}
+@media (max-width:900px){.steps{height:auto!important}.st-stage{position:relative;top:auto!important;height:auto;padding-block:64px}.st-row{grid-template:none;gap:28px}.st-row li{grid-area:auto;opacity:1;transform:none}.st-line{display:none}}
+
+/* המלצות ושאלות */
+.pending{background:var(--mist)}
+.pending .wrap{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.ph{border:2px dashed var(--line);border-radius:var(--r);padding:36px 24px;text-align:center;background:#fff}
+.ph h3{color:var(--night)}
+
+/* סיום */
+.final{background:var(--night);color:#fff;position:relative;overflow:hidden}
+.final canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.final .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,380px);gap:48px;align-items:center}
+.final h2{font-size:clamp(42.24px,4.05vw,66.88px);line-height:.9}
+.final h2 span{color:var(--green)}
+.final p{color:#D6DCF2;font-size:16.72px;margin-top:18px;max-width:44ch}
+.final .scan{box-shadow:none}
+
+footer{background:var(--deep);color:#AEB8DC;font-size:13.2px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-block:28px}
+footer b{color:#fff;font-weight:400}
+footer .tag{color:var(--green)}
+
+
+@media (max-width:1180px){ .grid4{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (max-width:900px){
+  :root{--content:calc(100vw - 40px)}
+  .pain .wrap,.final .wrap,.checkform .wrap{grid-template-columns:minmax(0,1fr);gap:36px}
+  .pain h2{position:static}
+  .checkform .wrap{gap:0}
+  .trust .wrap{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:36px;padding-block:64px}
+  .trust .stat:first-child{grid-column:1/-1}
+  .stat+.stat{border-right:0}
+  .pair,.pending .wrap{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:560px){
+  body{font-size:14.96px}
+  .grid4{grid-template-columns:minmax(0,1fr)}
+  .phone,.brand small{display:none}
+  .brand b{font-size:22.88px}.brand .bt{display:none}
+  .ask h1{font-size:20.24vw}
+  .ask .lede{font-size:14.96px}
+  .top .btn{font-size:16.72px;padding:9px 14px 7px}
+  .badge{width:44px;height:44px}.badge img{width:30px}
+  .checkform .list,.checkform .fm{padding:24px 18px}
+  .big h3{font-size:42.24px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+
+/* כפתור אחד שמתחלף בריחוף: הטקסט עולה ויוצא, המתנה עולה מלמטה, והמתג נדלק מימין לשמאל */
+.swap{display:inline-grid;overflow:hidden;position:relative}
+.swap .face{grid-area:1/1;display:flex;align-items:center;justify-content:center;gap:12px;white-space:nowrap;
+  transition:transform .45s cubic-bezier(.65,0,.35,1),opacity .3s ease}
+.swap .f2{transform:translateY(120%);opacity:0;font-size:.86em}
+.swap:hover .f1,.swap:focus-visible .f1,.swap.alt .f1{transform:translateY(-120%);opacity:0}
+.swap:hover .f2,.swap:focus-visible .f2,.swap.alt .f2{transform:none;opacity:1}
+.sw{width:46px;height:26px;border-radius:999px;background:rgba(19,26,70,.35);position:relative;flex:none;transition:background .3s ease .25s}
+.sw::after{content:"";position:absolute;top:3px;left:23px;width:20px;height:20px;border-radius:50%;background:#fff;transition:left .35s cubic-bezier(.34,1.4,.64,1) .25s}
+.swap:hover .sw,.swap:focus-visible .sw,.swap.alt .sw{background:var(--night)}
+.swap:hover .sw::after,.swap:focus-visible .sw::after,.swap.alt .sw::after{left:3px}
+
+/* חץ שטס מהכפתור לאזור הטופס */
+.fly{position:fixed;z-index:40;width:44px;height:150px;margin-left:-22px;pointer-events:none;top:0;left:0;will-change:transform,opacity}
+.fly svg{width:100%;height:100%;display:block;overflow:visible;filter:drop-shadow(0 0 10px rgba(45,190,108,.7))}
+.checkform .wrap.hit{animation:hit .9s ease-out}
+@keyframes hit{0%{box-shadow:0 0 0 0 rgba(45,190,108,.9),0 30px 60px -20px rgba(0,0,0,.55)}100%{box-shadow:0 0 0 26px rgba(45,190,108,0),0 30px 60px -20px rgba(0,0,0,.55)}}
+
+/* קפיצת דרך: החץ מצטייר בדרך, ובסוף הראש שלו "מותח" את הכרטיס הלבן כמו כלי מלבן באילוסטרייטור */
+.warp{position:absolute;left:0;top:0;width:100%;z-index:25;pointer-events:none}
+.warp .wbg{position:absolute;inset:0;background:var(--night);opacity:0;overflow:hidden}
+.warp svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.warp .glow{filter:drop-shadow(0 0 14px rgba(45,190,108,.85)) drop-shadow(0 0 44px rgba(31,167,154,.5))}
+.warp .sel{fill:none;stroke:#2DBE6C;stroke-width:2}
+.streaks i{position:absolute;top:-30%;width:3px;border-radius:3px;background:linear-gradient(transparent,rgba(45,190,108,.45));animation:streak .5s linear infinite}
+@keyframes streak{to{transform:translateY(170vh)}}
+
+/* שדות הטופס: בריחוף או בפוקוס מסגרת זוהרת בגרדיאנט מצטיירת סביב השדה, ונשארת */
+.inwrap{position:relative;display:block;border-radius:10px}
+.inwrap svg.ink{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;filter:drop-shadow(0 0 5px rgba(45,190,108,.55))}
+.inwrap rect{fill:none;stroke:url(#ig);stroke-width:2;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset .8s cubic-bezier(.65,0,.35,1)}
+.inwrap.drawn rect{stroke-dashoffset:0}
+.inwrap.drawn input,.inwrap input:focus{border-color:transparent;outline:none}
+
+/* מה בודקים: רקע כחול, כותרת נעוצה, כל משבצת מגיעה לבד ונערמת על הקודמת – מדרגת צבעים */
+.checks{background:var(--night);color:#fff;padding-bottom:clamp(64px,9vw,110px)}
+.checks .chead{position:sticky;top:calc(env(safe-area-inset-top,0px) + 72px + 7vh);z-index:6;background:var(--night);padding-block:22px 18px}
+.checks .chead h2{color:#fff;margin:6px 0 0}
+.stack{display:block;--hh:150px;--ch:clamp(230px,30vh,300px);--M:16vh}
+.stack .card{position:sticky;top:calc(env(safe-area-inset-top,0px) + 72px + 7vh + var(--hh) + var(--i,0)*30px);height:var(--ch);margin-bottom:calc(var(--M) + (3 - var(--i,0))*30px);border:0;border-radius:24px;padding:clamp(28px,3vw,44px);grid-template-columns:auto minmax(0,1fr);column-gap:28px;row-gap:6px;align-content:center;box-shadow:0 -14px 30px -18px rgba(0,0,0,.55)}
+.stack .chead{margin-bottom:calc(var(--ch) + var(--M) + 90px)}
+.stack-end{height:22vh}
+.stack .chead+.card{margin-top:calc(-1*(var(--ch) + var(--M) + 90px))}
+.stack .card .ic{grid-row:span 2;width:64px;height:64px;background:rgba(255,255,255,.14)}
+.stack .card .ic svg{width:32px;height:32px;stroke:#fff}
+.stack .card h3{font-size:clamp(35.2px,3.17vw,51.04px);color:#fff;align-self:end}
+.stack .card p{font-size:clamp(17.6px,1.5vw,22.88px);color:rgba(255,255,255,.88);line-height:1.3;max-width:42ch}
+.stack .card:nth-child(2){--i:0;background:#1F2B6B}
+.stack .card:nth-child(3){--i:1;background:#005D94}
+.stack .card:nth-child(4){--i:2;background:#11807E}
+.stack .card:nth-child(5){--i:3;background:#2DBE6C}
+.stack .card:nth-child(5) h3,.stack .card:nth-child(5) p{color:var(--night)}
+.stack .card:nth-child(5) .ic{background:rgba(19,26,70,.15)}.stack .card:nth-child(5) .ic svg{stroke:var(--night)}
+@media (max-width:560px){.stack .card{grid-template-columns:minmax(0,1fr)}.stack .card .ic{grid-row:auto}}
+
+.pain .punch{display:grid;margin-top:26px;overflow:hidden}
+.punch .pa,.punch .pb{grid-area:1/1;transition:transform .6s cubic-bezier(.65,0,.35,1),opacity .4s ease}
+.punch .pb{transform:translateY(105%);opacity:0}
+.punch.swp .pa{transform:translateY(-105%);opacity:0}
+.punch.swp .pb{transform:none;opacity:1}
+.pain .todo{margin-top:22px}
+
+/* כפתור דינמי: גרדיאנט שזורם והברקה בריחוף */
+.btn.shine{position:relative;overflow:hidden;background:linear-gradient(110deg,var(--green) 0%,var(--green-hi) 35%,var(--teal) 70%,var(--green) 100%);background-size:250% 100%;background-position:0 0;transition:background-position .8s cubic-bezier(.65,0,.35,1),transform .25s ease,box-shadow .3s ease;color:var(--night)}
+.btn.shine::after{content:"";position:absolute;top:-20%;bottom:-20%;width:38%;left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.75),transparent);transform:skewX(-20deg);transition:left .7s ease}
+.btn.shine:hover{background-position:100% 0;transform:translateY(-3px) scale(1.04);box-shadow:0 10px 30px -8px rgba(45,190,108,.75),0 0 0 3px rgba(45,190,108,.25)}
+.btn.shine:hover::after{left:130%}
+
+/* גלילה רוחבית: פנסיה ואז ביטוח חיים */
+.hs{position:relative;height:330vh;background:var(--mist)}
+.hs-stage::before,.hs-stage::after{content:"";position:absolute;border-radius:50%;pointer-events:none;border:clamp(26px,3vw,44px) solid rgba(31,167,154,.10)}
+.hs-stage::before{width:62vmin;height:62vmin;top:-20vmin;left:-18vmin}
+.hs-stage::after{width:46vmin;height:46vmin;bottom:-16vmin;right:-12vmin;border-color:rgba(45,190,108,.10)}
+.hs-stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:grid;grid-template-columns:minmax(0,100%);grid-template-rows:auto minmax(0,1fr) auto;padding-top:calc(var(--th,72px) + 2.5vh)}
+.hs-head{text-align:center}
+.hs-head h2{position:relative;z-index:1;white-space:nowrap;margin-bottom:2vh;color:var(--night);font-size:clamp(35.2px,3.43vw,59.84px);line-height:.92;letter-spacing:-.025em}
+.hs-track{display:flex;width:300vw;height:100%;will-change:transform}
+.hs-panel{width:100vw;flex:none;display:grid;align-items:start;padding-top:1vh}
+.hs-panel{counter-increment:hp}
+.hs-track{counter-reset:hp}
+.hs-in{position:relative;display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;gap:14px;align-items:center;background:#fff;border-radius:28px;padding:clamp(18px,2vw,28px) clamp(26px,3vw,48px) clamp(20px,2.2vw,30px);box-shadow:0 30px 60px -34px rgba(19,26,70,.35),0 0 0 1px rgba(19,26,70,.05);overflow:hidden}
+.hs-in::before{content:"0" counter(hp);position:absolute;top:-.12em;left:.18em;font-family:var(--display);font-size:clamp(96.8px,9.68vw,158.4px);line-height:1;color:rgba(31,167,154,.09);letter-spacing:-.04em;pointer-events:none}
+.hs-in::after{content:"";position:absolute;inset:0 0 auto 0;height:6px;background:linear-gradient(90deg,var(--green-hi),var(--teal))}
+.hs-txt{display:grid;gap:5px;color:var(--ink-2);font-size:clamp(14.08px,1.14vw,17.6px);line-height:1.06;text-align:justify;text-align-last:center}
+.hs-txt h3{text-align:center;text-align-last:center}
+.hs-txt{position:relative;z-index:1}
+.hs-txt h3{font-size:clamp(31.68px,2.82vw,47.52px);color:var(--blue);line-height:.95;margin-bottom:8px;position:relative;padding-bottom:12px}
+.hs-txt h3::after{content:"";position:absolute;bottom:0;left:50%;width:56px;height:4px;margin-left:-28px;border-radius:4px;background:var(--green-hi)}
+.hs-txt .hl{font-family:var(--display);color:var(--green);font-size:clamp(19.36px,1.58vw,26.4px);line-height:1.05;margin-top:4px}
+.hs-img{z-index:1;border-radius:20px;overflow:hidden;aspect-ratio:3/2;height:min(19vh,200px);max-width:100%;background:#0c1f14;position:relative;box-shadow:0 0 0 4px #fff,0 0 0 6px rgba(45,190,108,.5),0 20px 40px -18px rgba(19,26,70,.6)}
+.hs-img img{width:100%;height:100%;object-fit:cover;display:block}
+.hs-img.graph img{animation:kb 6s ease-in-out infinite alternate;transform-origin:50% 50%}
+.hs-img.graph::after{content:"";position:absolute;inset:0;background:radial-gradient(circle,rgba(170,255,190,.95) 0,rgba(90,230,140,.45) 9%,transparent 22%);background-size:100% 100%;mix-blend-mode:screen;animation:climb 6s ease-in-out infinite alternate}
+@keyframes climb{from{transform:translate(-36%,30%) scale(1)}to{transform:translate(30%,-34%) scale(1.25)}}
+.hs-img.shield img{object-fit:contain;animation:fl 4.5s ease-in-out infinite;transform-origin:55% 60%}
+.hs-img.health img{object-fit:cover!important;object-position:68% 50%;animation:hb 2.6s ease-in-out infinite;transform-origin:50% 50%}
+@keyframes hb{0%,100%{transform:scale(1)}12%{transform:scale(1.045)}24%{transform:scale(1.01)}36%{transform:scale(1.05)}55%{transform:scale(1)}}
+.hs-img.health::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 0,rgba(170,255,190,.55) 4%,transparent 9%);background-size:100% 100%;mix-blend-mode:screen;animation:ecg 2.6s linear infinite}
+@keyframes ecg{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+@media (prefers-reduced-motion:reduce){.hs-img.health img,.hs-img.health::after{animation:none}}
+.hs-img.shield::after{content:"";position:absolute;inset:-40%;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.5) 50%,transparent 60%);animation:sweep 3.2s ease-in-out infinite}
+@keyframes kb{from{transform:scale(1.14) translate(5%,-3.5%)}to{transform:scale(1.14) translate(-4%,4%)}}
+
+@keyframes fl{0%,100%{transform:scale(1) translateY(1.5%) rotate(1deg)}50%{transform:scale(1.04) translateY(-2.5%) rotate(-2deg)}}
+@keyframes sweep{0%,55%{transform:translateX(-60%)}100%{transform:translateX(60%)}}
+.hs-foot{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:14px 26px}
+.hs-dots{display:flex;gap:8px}.hs-dots i{width:18px;height:6px;border-radius:6px;background:var(--line);transition:background .3s,width .4s ease}.hs-dots i.on{width:44px;background:linear-gradient(90deg,var(--green-hi),var(--teal))}
+@media (max-width:900px){
+  .hs{height:auto}.hs-stage{position:relative;height:auto;overflow:visible;display:block;padding-block:64px}
+  .hs-track{display:block;width:auto;transform:none!important}.hs-panel{width:auto;padding-block:24px}
+  .hs-in{grid-template-columns:minmax(0,1fr)}.hs-img{max-height:none;aspect-ratio:16/10}.hs-dots{display:none}
+}
+
+/* סמן עכבר בצורת המגן, ופס גלילה ירוק */
+html,body{cursor:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2232%22%20height%3D%2234%22%20viewBox%3D%220%200%2032%2034%22%3E%3Cpath%20d%3D%22M16%202%20C20%205%2024%206.5%2029%206.5%20C29%2019%2024%2027%2016%2032%20C8%2027%203%2019%203%206.5%20C8%206.5%2012%205%2016%202%20Z%22%20fill%3D%22%23131A46%22%20stroke%3D%22%232DBE6C%22%20stroke-width%3D%222.6%22%20stroke-linejoin%3D%22round%22/%3E%3Cpath%20d%3D%22M10.5%2017%20L14.5%2021%20L22%2012.5%22%20fill%3D%22none%22%20stroke%3D%22%232DBE6C%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E") 16 2,auto}
+a,button,.btn,.co-i,label,summary{cursor:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2232%22%20height%3D%2234%22%20viewBox%3D%220%200%2032%2034%22%3E%3Cpath%20d%3D%22M16%202%20C20%205%2024%206.5%2029%206.5%20C29%2019%2024%2027%2016%2032%20C8%2027%203%2019%203%206.5%20C8%206.5%2012%205%2016%202%20Z%22%20fill%3D%22%232DBE6C%22%20stroke%3D%22%23131A46%22%20stroke-width%3D%222.6%22%20stroke-linejoin%3D%22round%22/%3E%3Cpath%20d%3D%22M10.5%2017%20L14.5%2021%20L22%2012.5%22%20fill%3D%22none%22%20stroke%3D%22%23131A46%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E") 16 2,pointer}
+input{cursor:text}
+html{scrollbar-width:auto;scrollbar-color:#3FAE4E transparent}
+::-webkit-scrollbar{width:16px;background:transparent}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{border-radius:999px;border:3px solid transparent;background-clip:padding-box;background-color:#5BB646;background-image:linear-gradient(180deg,rgba(255,255,255,.35),rgba(255,255,255,0) 40px)}
+::-webkit-scrollbar-thumb:hover{background-color:#2DBE6C}
+
+/* ביטוח בודקים: כותרת גדולה, טקסט ליד התמונה */
+.hs-head h2{font-size:clamp(40.48px,3.96vw,77.44px)!important}
+.hs-in{grid-template-columns:minmax(0,1.7fr) minmax(0,1fr)!important;justify-items:stretch!important;gap:clamp(22px,2.6vw,40px)!important;align-items:center!important}
+.hs-img{height:auto!important;width:100%;aspect-ratio:4/5!important;max-height:48vh}
+.hs-txt{font-size:clamp(13.2px,1.06vw,17.6px)!important}
+.hs-txt{text-align:justify;text-align-last:right}
+.hs-txt h3{text-align:right!important;text-align-last:right!important}
+.hs-txt h3::after{left:auto!important;right:0;margin-left:0!important}
+.hs-in::before{left:auto!important;right:.12em}
+.hs-txt .hl{text-align-last:right}
+@media (max-width:900px){.hs-in{grid-template-columns:minmax(0,1fr)!important}.hs-img{aspect-ratio:16/10!important}}
+
+.hs-txt h3::after,.hs-in::after{display:none!important}
+.hs-txt h3{padding-bottom:0!important}
+.hs-img{box-shadow:none!important}
+.hs-img.shield img{object-fit:cover!important;object-position:52% 50%}
+
+.hs-in::before{display:none!important}
+.hs-stage{grid-template-rows:auto auto auto!important;align-content:center!important;padding-top:var(--th,72px)!important}
+.hs-track{height:auto!important}
+.hs-panel{padding-top:0!important}
+.hs-foot{padding-block:20px 0!important}
+.hs-in::before{display:none!important}
+.hs-stage{grid-template-rows:auto auto auto!important;align-content:center;padding-top:var(--th,72px)!important}
+.hs-track{height:auto!important}
+.hs-foot{padding-block:18px 0!important}
+/* לוגואים: כל תא ברוחב התוכן שלו (לא מתכווץ), גובה קבוע לכל לוגו */
+.co-strip ul{justify-content:space-around!important;gap:2px!important}
+.co-i{flex:1 1 auto!important;min-width:max-content!important;padding:6px clamp(6px,1vw,16px)!important;height:clamp(54px,5.4vw,76px)!important;display:flex!important;align-items:center;justify-content:center}
+.co-i img{display:block;position:static!important;top:auto!important;flex:none;width:auto!important;height:var(--lh,28px)!important;max-width:none!important;max-height:none!important}
+.co-i img[alt="שלמה"]{--lh:clamp(36px,3.4vw,50px)}
+.co-i img[alt="הראל"],.co-i img[alt="מגדל"],.co-i img[alt="הפניקס"]{--lh:clamp(28px,2.6vw,40px)}
+.co-i img[alt="כלל"],.co-i img[alt="מנורה מבטחים"],.co-i img[alt="איילון"]{--lh:clamp(22px,2.05vw,31px)}
+.co-i img[alt="כלל"]{--lh:clamp(30px,2.8vw,42px)}.co-i img[alt="מנורה מבטחים"]{--lh:clamp(28px,2.6vw,40px)}.co-i img[alt="מגדל"]{--lh:clamp(30px,2.8vw,42px)}.co-i img[alt="הפניקס"]{--lh:clamp(32px,3vw,46px)}.co-i img[alt="איילון"]{--lh:clamp(26px,2.4vw,36px)}
+.page .word{padding:0 22px!important;letter-spacing:-.02em!important;line-height:.9!important;text-align:center}
+
+/* טבעות ירוק זרחני: מסתובבות ומהבהבות כל הזמן */
+@keyframes neon{0%,100%{opacity:.95}8%{opacity:.55}10%{opacity:.95}46%{opacity:.75}52%{opacity:1}70%{opacity:.8}}
+.ring:nth-child(2) circle{animation-delay:-1.1s}.ring:nth-child(3) circle{animation-delay:-2.3s}
+/* מה אנחנו עושים */
+.checkform.svc .wrap{display:block;padding:clamp(26px,3vw,40px);text-align:center}
+.svc-h{font-size:clamp(48px,4.6vw,76px)!important;line-height:.95;color:var(--green)!important}
+.svc-sub{color:var(--ink-2);font-size:16px;margin-top:4px}
+.svc-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin-top:22px}
+.svc-t{all:unset;box-sizing:border-box;cursor:inherit;display:grid;justify-items:center;gap:10px;padding:18px 8px 16px;border-radius:18px;background:var(--mist);transition:background .3s,transform .3s,box-shadow .3s}
+.svc-t:hover,.svc-t.on{background:#fff;box-shadow:0 0 0 2px var(--green-hi),0 14px 30px -16px rgba(19,26,70,.45);transform:translateY(-3px)}
+.svc-t:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+.svc-ic{width:62px;height:62px;border-radius:50%;background:var(--night);color:var(--green-hi);display:grid;place-items:center;animation:bob 3.6s ease-in-out infinite}
+.svc-t:nth-child(2) .svc-ic{animation-delay:-.6s}.svc-t:nth-child(3) .svc-ic{animation-delay:-1.2s}.svc-t:nth-child(4) .svc-ic{animation-delay:-1.8s}.svc-t:nth-child(5) .svc-ic{animation-delay:-2.4s}.svc-t:nth-child(6) .svc-ic{animation-delay:-3s}
+.svc-ic svg{width:32px;height:32px}
+.svc-ic svg *{stroke-dasharray:80;stroke-dashoffset:80}
+.go .svc-ic svg *{animation:draw 1.4s ease forwards}
+.svc-t:hover .svc-ic svg *{animation:draw 1s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.svc-n{color:var(--night);font-size:clamp(17px,1.35vw,21px);line-height:1.05}
+.svc-d{max-height:0;overflow:hidden;opacity:0;transition:max-height .5s ease,opacity .4s ease,margin .4s ease;text-align:center}
+.svc-d.open{max-height:260px;opacity:1;margin-top:20px}
+.svc-d h4{margin:0 0 6px;font-family:var(--display);font-weight:400;font-size:clamp(26px,2.2vw,34px);color:var(--blue)}
+.svc-d p{color:var(--ink-2);font-size:clamp(16px,1.25vw,19px);line-height:1.25;max-width:60ch;margin:0 auto}
+.svc-d .todo{margin-top:0}
+@media (max-width:900px){.svc-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+/* טופס בסוף */
+.checkform.end{padding-block:0 clamp(64px,8vw,100px)}
+.final{padding-bottom:clamp(36px,4vw,56px)!important}
+.final .wrap{grid-template-columns:minmax(0,1fr)!important;text-align:center;justify-items:center}
+.final p{margin-inline:auto}
+/* מקרים אמיתיים */
+.cases{display:grid;gap:10px;margin-top:26px}
+.cases-h{font-family:var(--display);color:var(--green);font-size:clamp(22px,1.8vw,28px);line-height:1}
+.case{display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px;align-items:center;background:#fff;border-radius:16px;padding:14px 18px;box-shadow:0 10px 26px -18px rgba(19,26,70,.4)}
+.case b{font-family:var(--display);font-weight:400;color:var(--blue);font-size:clamp(22px,1.9vw,30px);line-height:1;white-space:nowrap}
+.case span{font-size:clamp(14px,1.1vw,17px);line-height:1.25;color:var(--ink-2)}
+/* המלצות */
+.pending{padding-top:clamp(56px,7vw,90px)}
+.tq-wrap{margin-bottom:34px}
+.tq-h{text-align:center;color:var(--night);font-size:clamp(40px,4vw,64px)!important;margin-bottom:26px}
+.tq-grid{columns:3 260px;column-gap:18px}
+.tq{break-inside:avoid;margin:0 0 18px;background:#fff;border-radius:20px;padding:26px 24px 22px;position:relative;box-shadow:0 14px 30px -20px rgba(19,26,70,.45)}
+.tq-m{position:absolute;top:-6px;right:18px;font-family:var(--display);font-size:70px;line-height:1;color:var(--green-hi)}
+.tq blockquote{margin:0;color:var(--ink);font-size:clamp(16px,1.2vw,19px);line-height:1.3}
+.pend2{display:grid;grid-template-columns:minmax(0,1fr)}
+.pending .tq-wrap{display:block!important}
+.tq-marq{overflow:hidden;padding-block:14px 30px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
+.tq-track{display:flex;gap:20px;width:max-content;align-items:flex-start;will-change:transform}
+.tq-marq{cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.tq-marq.drag{cursor:grabbing}
+.tq-marq:hover .tq-track{animation-play-state:paused}
+@keyframes tqm{to{transform:translateX(calc(50% + 10px))}}
+.tq-track .tq{flex:0 0 clamp(260px,24vw,340px);margin:0;padding:22px 24px 24px;transition:transform .5s cubic-bezier(.2,.8,.3,1),box-shadow .5s ease}
+.tq-track .tq:nth-child(even){margin-top:30px}
+.tq-track .tq:hover{transform:translateY(-6px);box-shadow:0 22px 40px -22px rgba(19,26,70,.55)}
+.tq-track .tq-m{position:static;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--green-hi);color:var(--night);font-size:46px;line-height:1;padding-top:18px;margin-bottom:14px;overflow:hidden}
+@media (prefers-reduced-motion:reduce){.tq-marq{overflow-x:auto}.tq-track{animation:none}}
+.pending .pend2{grid-template-columns:minmax(0,1fr)!important}
+.faqsec{background:var(--night);padding:0}
+.faq{padding-block:clamp(64px,8vw,120px)}
+.faqsec .fq{box-shadow:0 18px 40px -26px rgba(0,0,0,.6)}
+.faqsec .fq[open]{box-shadow:0 0 0 2px var(--green),0 22px 44px -26px rgba(0,0,0,.7)}
+.faq-h{text-align:center;color:#fff!important;font-size:clamp(40px,4vw,64px);line-height:1;margin:0 0 clamp(28px,3.4vw,48px)}
+.fq-list{display:grid;gap:12px}
+.fq{background:#fff;border-radius:18px;box-shadow:0 1px 0 rgba(19,26,70,.04),0 14px 30px -24px rgba(19,26,70,.45);transition:box-shadow .35s ease}
+.fq[open]{box-shadow:0 0 0 2px rgba(99,178,66,.55),0 18px 36px -24px rgba(19,26,70,.5)}
+.fq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:20px 24px;color:var(--night);font-size:clamp(17px,1.35vw,21px);line-height:1.3}
+.fq summary::-webkit-details-marker{display:none}
+.fq summary:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:18px}
+.fq-i{position:relative;flex:0 0 34px;height:34px;border-radius:50%;background:var(--night);transition:background .3s ease,transform .45s cubic-bezier(.2,.8,.3,1)}
+.fq-i::before,.fq-i::after{content:"";position:absolute;inset:50% auto auto 50%;width:14px;height:2px;margin:-1px 0 0 -7px;background:#fff;border-radius:2px;transition:transform .45s cubic-bezier(.2,.8,.3,1)}
+.fq-i::after{transform:rotate(90deg)}
+.fq[open] .fq-i{background:var(--green);transform:rotate(180deg)}
+.fq[open] .fq-i::after{transform:rotate(0deg)}
+.fq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s cubic-bezier(.2,.8,.3,1)}
+.fq[open] .fq-a{grid-template-rows:1fr}
+.fq-a>div{overflow:hidden;padding:0 24px;color:var(--ink-2);font-size:clamp(15px,1.12vw,17.5px);line-height:1.6}
+.fq[open] .fq-a>div{padding-bottom:22px}
+.fq-a p{margin:0 0 10px}.fq-a p:last-child{margin:0}
+.fq-a ul{margin:0;padding:0 18px 0 0;display:grid;gap:8px}
+.fq-a li::marker{color:var(--green)}
+@media (prefers-reduced-motion:reduce){.fq-a,.fq-i,.fq-i::before,.fq-i::after{transition:none}}
+
+.pain .wrap{display:block!important}
+.pain-top{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:64px;align-items:start}
+@media (max-width:900px){.pain-top{grid-template-columns:minmax(0,1fr);gap:36px}.pain-top h2{position:static}}
+.pain .cases{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:4vh;align-items:start}
+.pain .cases-h{grid-column:1/-1;text-align:center;margin:0 0 22px}
+.pain .cases{row-gap:2px!important}
+/* עיגולי הקהילות: כל פעם עיגול אחר נדלק וזורח */
+.circle{transition:transform .5s ease}
+.circle .ring-s path{transition:stroke .5s ease,stroke-width .5s ease,filter .5s ease}
+.circle.lit .ring-s path{stroke:var(--green-hi);stroke-width:4.2;filter:drop-shadow(0 0 6px rgba(45,190,108,.85)) drop-shadow(0 0 16px rgba(45,190,108,.45))}
+.circle.lit{transform:scale(1.05)}
+/* "אבל בדקתי": רווח מעל הטקסט כדי שיהיה זמן לקרוא לפני שהוא עולה */
+@media (min-width:901px){.pain-top .txt{padding-top:24vh}}
+
+.case .nis{font-size:.58em;vertical-align:.08em}
+.pain .case b{white-space:normal!important;overflow-wrap:anywhere}
+.pain .case span{overflow-wrap:anywhere}
+.pain .case{min-width:0;overflow:hidden}
+.hs,main{overflow-x:clip}
+@media (max-width:900px){.pain .cases{row-gap:14px!important}}
+.case{grid-template-columns:minmax(0,1fr)!important;align-content:start;gap:10px!important;padding:24px 22px 24px!important;border-radius:20px!important;clip-path:inset(0 0 100% 0 round 20px);transform:translateY(-18px);opacity:0;transition:clip-path .75s cubic-bezier(.2,.8,.3,1),transform .75s cubic-bezier(.2,.8,.3,1),opacity .25s ease;will-change:clip-path,transform}
+.case.on{clip-path:inset(0 0 0 0 round 20px);transform:none;opacity:1}
+.case b{font-size:clamp(26px,2.2vw,36px)!important}
+.night-zone{position:relative;background:var(--night);overflow:clip}
+.night-zone>.final,.night-zone>.checkform{background:transparent!important;position:relative;z-index:1}
+.pain{padding-bottom:10vh!important}
+.tq-marq{width:100vw;margin-inline:calc(50% - 50vw);-webkit-mask-image:none!important;mask-image:none!important;padding-inline:4vw}
+.pending{overflow-x:clip}
+.tq-track .tq-m{font-size:0!important;padding:0!important;background:var(--green-hi) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23131A46' d='M3 18v-5.2C3 8.6 5.3 5.8 9.4 5l.8 1.6C8 7.3 6.9 8.8 6.8 11H10v7zm10.6 0v-5.2c0-4.2 2.3-7 6.4-7.8l.8 1.6c-2.2.7-3.3 2.2-3.4 4.4H21v7z'/%3E%3C/svg%3E") center/22px no-repeat!important}
+@media (max-width:900px){.pain .cases{grid-template-columns:minmax(0,1fr)}}
+@media (prefers-reduced-motion:reduce){.case{clip-path:none;transform:none;opacity:1}}
+</style>
+</head><body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="ig" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2DBE6C"/><stop offset=".5" stop-color="#1FA79A"/><stop offset="1" stop-color="#63B242"/></linearGradient></defs></svg>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <span class="badge"><img src="shield.png" alt=""></span>
+      <span><b>שמואל זייבלד<span class="bt">, ביטוח ופיננסים</span></b><small>מבית נתי קלמן סוכנות לביטוח</small></span>
+    </a>
+    <div class="top-actions">
+      <span class="phone">02-59-40-620</span>
+      <a class="btn alive" href="#form">בדיקה במתנה</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<section class="intro" id="intro" aria-label="פתיחה">
+  <div class="stage">
+    <div class="ring ra" aria-hidden="true"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" stroke="#2F5D5F" stroke-dasharray="190 86.5"/></svg></div><div class="ring rb" aria-hidden="true"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" stroke="#1FA79A" stroke-dasharray="120 156.5"/></svg></div><div class="ring rc" aria-hidden="true"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" stroke="#2F5D5F" stroke-dasharray="60 216.5"/></svg></div>
+    <div class="wrap">
+      <div class="layer delay" id="delay" aria-hidden="true">
+        <div class="cal" id="cal"></div>
+      </div>
+      <div class="layer ask" id="ask">
+        <h1>אתם <span style="white-space:nowrap">בטוחים<span class="q">?</span></span></h1>
+        <p class="lede"><span>את הביטוח רוב האנשים פותחים ביום שהם צריכים אותו,</span> <span>ואז כבר מאוחר לתקן. לכן כדאי לדעת כבר היום, ולא מחר,</span> <span>מה באמת יש לכם בתיק.</span></p>
+        <div class="row">
+          <a class="btn swap" href="#form" aria-label="לא מחכים, בודקים עכשיו! מתנה: בדיקה מקיפה של כל התיק">
+            <span class="face f1" aria-hidden="true">לא מחכים, בודקים עכשיו!</span>
+            <span class="face f2" aria-hidden="true"><span class="sw"></span>מתנה: בדיקה מקיפה של כל התיק</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <p class="hint" id="hint" aria-hidden="true"><i></i></p>
+  </div>
+</section>
+
+<section class="checkform svc" id="check">
+  <div class="wrap">
+    <h3 class="svc-h">מה אנחנו עושים</h3>
+    <p class="svc-sub">לחצו על תחום כדי לקרוא עליו</p>
+    <div class="svc-grid"><button class="svc-t" type="button" data-i="0" aria-controls="svcD"><span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10z"/></svg></span><span class="svc-n">ביטוח חיים</span></button><button class="svc-t" type="button" data-i="1" aria-controls="svcD"><span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M12 8v8M8 12h8"/></svg></span><span class="svc-n">ביטוח בריאות</span></button><button class="svc-t" type="button" data-i="2" aria-controls="svcD"><span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19l5-6 4 3 7-9"/><path d="M15 7h5v5"/></svg></span><span class="svc-n">קרן פנסיה</span></button><button class="svc-t" type="button" data-i="3" aria-controls="svcD"><span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-4 9 4-9 4z"/><path d="M7 11v4c0 1.5 2.5 3 5 3s5-1.5 5-3v-4"/></svg></span><span class="svc-n">קרן השתלמות</span></button><button class="svc-t" type="button" data-i="4" aria-controls="svcD"><span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 4v8l6 4"/></svg></span><span class="svc-n">קופת גמל להשקעה</span></button><button class="svc-t" type="button" data-i="5" aria-controls="svcD"><span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11a7 6 0 0 1 13-1h1.5v4H18a7 6 0 0 1-3 3v2h-2.5v-1.5h-3V19H7v-2.5A6 6 0 0 1 5 11z"/><circle cx="15" cy="10" r=".6"/></svg></span><span class="svc-n">פוליסת חיסכון</span></button></div>
+    <div class="svc-d" id="svcD" aria-live="polite"><h4></h4><p></p></div>
+  </div>
+</section>
+<section class="trust" aria-label="נתונים">
+  <div class="wrap">
+    <div class="stat"><b><bdi dir="ltr">+₪<span class="n" data-to="48569365">48,569,365</span></bdi></b><span>נחסכו ללקוחות</span></div>
+    <div class="stat"><b><bdi dir="ltr">+<span class="n" data-to="3000">3,000</span></bdi></b><span>לקוחות מרוצים</span></div>
+    <div class="stat"><b><bdi dir="ltr">+<span class="n" data-to="30">30</span></bdi></b><span>מעסיקים וקהילות</span></div>
+  </div>
+</section>
+
+<section class="cos" aria-label="חברות הביטוח">
+  <div class="wrap">
+    <h2>עובדים עם כל חברות הביטוח</h2>
+    <div class="co-strip" id="coStrip"><span class="co-ind" aria-hidden="true"></span><ul><li class="co-i"><img src="harel2.png" alt="הראל"></li><li class="co-i"><img src="co-migdal.png" alt="מגדל"></li><li class="co-i"><img src="co-clal.png" alt="כלל"></li><li class="co-i"><img src="co-menora.png" alt="מנורה מבטחים"></li><li class="co-i"><img src="co-ayalon.png" alt="איילון"></li><li class="co-i"><img src="co-phoenix.png" alt="הפניקס"></li></ul></div>
+  </div>
+</section>
+
+<section class="group">
+  <div class="wrap">
+    <h2>כוח של קבוצה,<br>ומישהו שעומד מאחוריכם</h2>
+    <p><span>כשקהילות מצטרפות יחד, אפשר להשיג להן מחירים שלקוח בודד לא מקבל,</span> <span>ואת אותו כוח אנחנו מביאים גם לרגע התביעה.</span></p>
+  </div>
+</section>
+
+<section class="communities" aria-label="קהילות שבחרו בנו">
+  <div class="comm-stage">
+    <div class="wrap">
+      <h2>קהילות שבחרו דווקא בנו</h2>
+      <div class="circles">
+        <div class="circle"><svg class="ring-s" viewBox="0 0 100 100" aria-hidden="true"><path/></svg><img src="shmura.svg" alt="שמורה"></div>
+        <div class="circle"><svg class="ring-s" viewBox="0 0 100 100" aria-hidden="true"><path/></svg><img src="manifa.png" alt="מניפה"></div>
+        <div class="circle"><svg class="ring-s" viewBox="0 0 100 100" aria-hidden="true"><path/></svg><span>יד<br>החסד</span></div>
+        <div class="circle"><svg class="ring-s" viewBox="0 0 100 100" aria-hidden="true"><path/></svg><img class="imecha" src="imecha.png" alt="עימך אחיסמך"></div>
+        <div class="circle"><svg class="ring-s" viewBox="0 0 100 100" aria-hidden="true"><path/></svg><img src="achim.png" alt="אחים לחסד"></div>
+        <div class="circle"><svg class="ring-s" viewBox="0 0 100 100" aria-hidden="true"><path/></svg><span>עשרות<br>מעסיקים</span></div>
+      </div>
+    </div>
+    <svg class="zoom" aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none"><path/></svg>
+  </div>
+</section>
+
+<section class="sec pain">
+  <div class="wrap">
+  <div class="pain-top">
+    <h2><span class="g">אבל</span> בדקתי רק <span style="white-space:nowrap">לאחרונה<span class="qm" id="qm">?</span></span></h2>
+    <div class="txt">
+      <p>גם מי שבדק לאחרונה מרוויח מבדיקה נוספת.</p>
+      <p>בבדיקות שלנו מוצאים שוב ושוב כפל ביטוחי שאף אחד לא שם לב אליו, ודמי ניהול בפנסיה שגבוהים בהרבה ממה שאפשר לקבל, גם אצל אנשים שהיו בטוחים שהכול מסודר.</p>
+      <p>בדיקה מקצועית שלנו, שעוברת על כל התיק מול כל חברות הביטוח, רואה לפעמים דברים שקשה לראות לבד.</p>
+      <p class="punch" id="punch"><span class="pa">הדחייה לא חוסכת כלום, היא רק עולה כסף.</span><span class="pb" aria-hidden="true">הבדיקה לא עולה כלום, היא רק חוסכת כסף.</span></p>
+    </div>
+  </div>
+    <div class="cases">
+      <p class="cases-h">מהבדיקות שלנו</p>
+      <div class="case"><b>מעל מיליון&#8239;<small class="nis">₪</small></b><span>שכירה שלא בדקה את הפנסיה 3 שנים ושילמה את דמי הניהול הגבוהים ביותר שמותר בחוק: 6% מההפקדה ו־0.5% מהצבירה, והייתה בטוחה שהתנאים שלה טובים. הורדנו משמעותית את דמי הניהול והתאמנו לה מסלולי השקעה אישיים. הרווח שלה עד הפרישה: מעל מיליון ₪.</span></div>
+      <div class="case"><b>מ־273&#8239;<small class="nis">₪</small> ל־68&#8239;<small class="nis">₪</small></b><span>שילם 273 ₪ בחודש על ביטוח חיים של 2 מיליון ₪. הוזלנו לו ל־68 ₪ בחודש.</span></div>
+      <div class="case"><b>מאות שקלים בחודש</b><span>שילם על ביטוחים כפולים. ביטלנו את המיותר והוזלנו משמעותית את השאר: חיסכון נקי של כמה מאות ₪ בחודש.</span></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hs" id="hs" aria-label="ביטוח בודקים לפני שצריכים אותו">
+  <div class="hs-stage">
+    <div class="wrap hs-head"><h2>ביטוח בודקים לפני שצריכים אותו</h2></div>
+    <div class="hs-track" id="hsTrack">
+      <article class="hs-panel">
+        <div class="wrap hs-in">
+          <div class="hs-txt">
+            <h3>קרן פנסיה</h3>
+            <p>נועדה להעניק ביטחון כלכלי לאדם המתפרנס מעבודתו, באמצעות הבטחת הכנסה שוטפת גם במצבים שבהם אינו מסוגל לעבוד. לצורך כך מפרישים עובד שכיר ומעבידו סכומי כסף לחיסכון בקרן פנסיה מדי חודש. גם עובד עצמאי צריך להפריש לקרן פנסיה על מנת לזכות בביטוח פנסיוני.</p>
+            <p>המצבים אותם מכסות ההפרשות לקרן פנסיה הם: זקנה, נכות, מוות.</p>
+            <p>גובה הפנסיה קשור ברמת ההכנסה המבוטחת של העובד, בתקופת עבודתו, ובתקופת העבודה בה היה מבוטח בפנסיה ובה היה צפוי להיות מבוטח אלמלא הפסקת עבודתו בשל אחד המצבים הנ״ל.</p>
+            <p>בכדי להוזיל את עלויות דמי הניהול יש לנו שיתופי פעולה עם כל חברות הביטוח, בדמי הניהול הנמוכים ביותר בשוק.</p>
+            <p>סוגי קרנות הפנסיה משתנים בשמות ובסעיפים שלהם, ולכל אחת יש את המיוחד שלה. ספרו לנו על עצמכם, ואנחנו נבחר בשבילכם!</p>
+          </div>
+          <div class="hs-img graph"><img src="graph-photo.jpg" alt="גרף עולה"></div>
+        </div>
+      </article>
+      <article class="hs-panel">
+        <div class="wrap hs-in">
+          <div class="hs-txt">
+            <h3>ביטוח חיים</h3>
+            <p>נועד על מנת לאפשר למשפחתו של המבוטח להמשיך ולנהל אורח חיים דומה, מבלי שיצטרכו לדאוג איך לסגור את החודש.</p>
+            <p>הארכת תוחלת החיים באוכלוסייה לא הסירה את האיום של מקרי פטירה בטרם עת. תאונות דרכים מהוות איום תמידי בכל גיל, לנוסעים ולהולכי רגל, ומחלות ואירועים רפואיים לא נעלמו מהעולם. בשנים האחרונות יש עלייה במספר התקפי לב בגיל צעיר, אולי עוד סימן של הלחצים הבלתי פוסקים של חיינו במאה ה־21. ההסתברויות נמוכות, אבל מקרה כזה אצל משפחה מסוימת הוא אסון של 100%.</p>
+            <p>ביטוח חיים מכונה גם ביטוח ריסק, וכולל פיצוי כספי למוטבים במקרה של מות המבוטח. המטרה העיקרית לרכישת ביטוח חיים היא הבטחת מקור פרנסה למשפחה במקרה מוות.</p>
+            <p>בפוליסה זו אתם קובעים את סכום הפיצוי, ולכן אחד השיקולים העיקריים שאתם צריכים לקחת בחשבון הוא מה צורכי המשפחה, בהווה ובעתיד.</p>
+            <p class="hl">אנחנו נדאג שתהיו בטוחים עד מאה ועשרים!</p>
+          </div>
+          <div class="hs-img shield"><img src="shield-photo.jpg" alt="מגן"></div>
+        </div>
+      </article>
+      <article class="hs-panel">
+        <div class="wrap hs-in">
+          <div class="hs-txt">
+            <h3>ביטוח בריאות</h3>
+            <p>ביטוח בריאות הוא שם כללי למגוון כיסויים המגנים על המבוטח כאשר הוא או בני משפחתו נזקקים לטיפולים רפואיים. בין הכיסויים ניתן למנות כיסוי לניתוחים פרטיים, מדובר באירועים שלא מקבלים מענה בביטוח הממלכתי וגם לא בשב״ן.</p>
+            <p>לדוגמא: ניתוח פרטי בארץ – בחירת מנתח, מרדים, בית חולים ומועד הניתוח, ניתוח פרטי בחו״ל – ביצוע ניתוח בכל מקום בעולם לפי בחירת המבוטח, השתלות איברים – בחו״ל וטיפול/ניתוח מיוחד בחו״ל, מימון תרופות שלא בסל הבריאות, כיסוי לטכנולוגיות מתקדמות, טיפולים מחליפי ניתוח, כיסויים שונים אמבולטוריים.</p>
+            <p>ביטוח בריאות מספק מטריית הגנה ומוודא שאתם וילדיכם תהיו מכוסים מבחינה בריאותית עם אחריות מורחבת. בפוליסה ניתן מענה למגוון רחב של פתרונות לבעיות רפואה שונות בלי תלות ברפואה הציבורית.</p>
+            <p>במסגרת הקבוצה תקבלו הצעה זולה ומשתלמת שתלווה אתכם כל החיים.</p>
+            <p class="hl">והעיקר שתהיו בריאים עד 120 שנה!</p>
+          </div>
+          <div class="hs-img health"><img src="health-photo.jpg" alt="לב עם קו דופק"></div>
+        </div>
+      </article>
+    </div>
+    <div class="wrap hs-foot"><p class="more"><b>עוד בתיק:</b> קרן השתלמות<span class="dot">●</span>קופת גמל להשקעה<span class="dot">●</span>פוליסת חיסכון</p>
+      <div class="hs-dots" aria-hidden="true"><i></i><i></i><i></i></div></div>
+  </div>
+</section>
+
+<section class="sec why" id="why">
+  <div class="wrap">
+    <h2 class="why-title">למה אנחנו</h2>
+    <div class="grid4">
+      <div class="card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#131A46" stroke-width="2.2"><path d="M4 17l5-5 4 3 7-8"/></svg></span><h3>המחיר הכי טוב בשוק</h3><p>לקוחות משווים מול הצעות אחרות בשוק, ובסוף חוזרים אלינו למחירים הכי משתלמים.</p></div>
+      <div class="card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#131A46" stroke-width="2.2"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg></span><h3>מחלקת תביעות</h3><p>חברת ביטוח מתייחסת אחרת לסוכנות מובילה שמביאה לה לקוחות, מאשר ללקוח שעומד מולה לבד, ולכן ברגע התביעה אנחנו מדברים איתה בשבילכם.</p></div>
+      <div class="card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#131A46" stroke-width="2.2"><circle cx="8" cy="9" r="3"/><circle cx="16" cy="9" r="3"/><path d="M2 20a6 6 0 0 1 12 0M10 20a6 6 0 0 1 12 0"/></svg></span><h3>מחיר קבוצתי</h3><p>קהילות, ארגונים ומעסיקים מקבלים מחיר שמחושב לפי הכוח של הקבוצה כולה.</p></div>
+      <div class="card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#131A46" stroke-width="2.2"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><h3>שירות</h3><p>נציג אדיב עובר איתכם על כל סעיף בסבלנות, עד שאתם מבינים בדיוק על מה אתם משלמים.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="steps" id="steps" aria-label="איך זה עובד">
+  <div class="st-stage">
+    <div class="wrap">
+      <h2>אז מה צריך לעשות?</h2>
+      <ol class="st-row">
+        <li><span class="st-n">1</span><h3>משאירים פרטים</h3><p>שם, טלפון ומייל, וזה כל מה שצריך.</p></li>
+        <li><span class="st-n">2</span><h3>מקבלים אישור</h3><p>מייל אוטומטי שהפנייה הגיעה אלינו.</p></li>
+        <li><span class="st-n">3</span><h3>נציג חוזר אליכם</h3><p>בהקדם, כדי לתאם את הבדיקה.</p></li>
+        <li><span class="st-n">4</span><h3>עוברים יחד על התיק</h3><p>ויוצאים עם תמונה ברורה של מה אפשר לשפר.</p></li>
+      </ol>
+      <div class="st-line" aria-hidden="true">
+        <svg class="st-svg" preserveAspectRatio="none"><defs><linearGradient id="stg" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="100" y2="0"><stop offset="0" stop-color="#2DBE6C"/><stop offset=".55" stop-color="#1FA79A"/><stop offset="1" stop-color="#005D94"/></linearGradient></defs><path class="st-track"/><path class="st-prog"/></svg>
+        <span class="st-head"></span>
+        <span class="st-num">1</span><span class="st-num">2</span><span class="st-num">3</span><span class="st-num">4</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec checks">
+  <div class="wrap">
+    <div class="stack">
+    <div class="chead"><h2>מה אנחנו בודקים לכם</h2></div>
+      <div class="card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#63B242" stroke-width="2"><rect x="3" y="5" width="12" height="15" rx="2"/><path d="M9 3h10a2 2 0 0 1 2 2v13"/></svg></span><h3>כפל ביטוחי</h3><p>מוודאים שאתם לא משלמים פעמיים על אותו כיסוי, וזה קורה גם למי שבטוח שבדק.</p></div>
+      <div class="card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#63B242" stroke-width="2"><path d="M4 18l6-6 4 4 6-8"/><path d="M15 8h5v5"/></svg></span><h3>דמי ניהול</h3><p>בודקים אם אפשר להוריד את דמי הניהול בקרן הפנסיה ובקרן ההשתלמות, כי ההפרש מצטבר כל שנה עד הפרישה.</p></div>
+      <div class="card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#63B242" stroke-width="2"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5L16 9.5"/></svg></span><h3>כיסוי מותאם</h3><p>מוודאים שהביטוחים באמת מתאימים לכם ולמשפחה, ולא רק מופיעים בתלוש.</p></div>
+      <div class="card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#63B242" stroke-width="2"><circle cx="12" cy="7" r="3"/><path d="M6 21v-3a6 6 0 0 1 12 0v3"/></svg></span><h3>חיסכון לכל ילד</h3><p>הרבה הורים לא מסתדרים עם החיסכון לכל ילד, אז עוברים איתכם על זה צעד אחרי צעד.</p></div>
+      <div class="stack-end" aria-hidden="true"></div>
+    </div>
+    <div class="cta-row"><a class="btn shine" href="#form">אני רוצה את הבדיקה</a></div>
+  </div>
+</section>
+
+<section class="sec pending">
+  <div class="wrap tq-wrap"><h2 class="tq-h">מה אומרים מי שכבר בדקו</h2><div class="tq-marq"><div class="tq-track"><figure class="tq"><span class="tq-m" aria-hidden="true">״</span><blockquote>הבאתם לנו ביטוח חיים שובר שוק (בדקנו והשווינו מול סוכנים אחרים). תודה רבה על השירות המסור.</blockquote></figure><figure class="tq"><span class="tq-m" aria-hidden="true">״</span><blockquote>עשיתם לנו סדר בכל מה שקשור לביטוח חיים, והכי חשוב: הוזלתם לנו את המחיר החודשי לחצי. תזכו למצוות!</blockquote></figure><figure class="tq"><span class="tq-m" aria-hidden="true">״</span><blockquote>אני לא מאמינה! בדקתי לפני חצי שנה והייתי בטוחה שהתיק הביטוחי שלי מסודר. במסגרת הבדיקה אצלכם, בפרט לפני הרפורמה החדשה, בדקתי בכל זאת, ופשוט גיליתי ששילמתי פעמיים ביטוח חיים, מה שנקרא כפל ביטוחי. וגם הוזלתם לי בדרסטיות: במקום 127.86 ₪, הכי זול שהיה לי עד היום, אשלם דרככם 54 ₪ על אותו סכום.</blockquote></figure><figure class="tq"><span class="tq-m" aria-hidden="true">״</span><blockquote>לא יאומן! באותו מחיר ששילמנו על ביטוח חיים למשכנתא שמכסה רק את הבנק, על סך 700,000 ₪, קיבלתי אצלכם כיסוי נוסף עבור המשפחה של 1,300,000 ₪ לשני בני הזוג, כביטוח חיים לביטחון ולאחריות עבור משפחתי. תודה לכם על הכול.</blockquote></figure><figure class="tq"><span class="tq-m" aria-hidden="true">״</span><blockquote>אני רוצה להתקדם ולעבור אליכם. בדקתי מול חברת הביטוח שאני מבוטחת בה, ואין להם להביא לי את המחירים שלכם!</blockquote></figure><figure class="tq"><span class="tq-m" aria-hidden="true">״</span><blockquote>תודה גדולה גדולה על החסד שאתם עושים!! תזכו למצוות!!</blockquote></figure><figure class="tq"><span class="tq-m" aria-hidden="true">״</span><blockquote>כמו שהצעת לי, בדקתי עוד אופציות. באמת אצלכם זה נשמע הרבה יותר טוב. איך אנחנו מתקדמים לחתימות?</blockquote></figure></div></div></div>
+</section>
+
+<section class="sec faqsec">
+  <div class="wrap">
+    <div class="faq"><h2 class="faq-h">שאלות נפוצות</h2><div class="fq-list"><details class="fq"><summary><span class="fq-q">יש לנו כבר ביטוח חיים למשכנתא. למה בכלל כדאי לנו לבדוק משהו אחר?</span><span class="fq-i" aria-hidden="true"></span></summary><div class="fq-a"><div><ul><li>גם למי שיש משכנתא, חשוב מאוד שיהיה כיסוי נוסף לאחריות המשפחתית במקרה של פטירה, לא עלינו.</li><li>חשוב מאוד לבדוק שאתם לא משלמים יותר מדי, סתם כסף לפח. אצלנו בסוכנות יש את המחירים הכי טובים בשוק, ללא תחרות. זכרו, חברות הביטוח עדיין לא קופות חסד :)</li><li>הרבה פעמים מתגלה כפל ביטוחי, גם אצל מי שבטוח שאצלו זה לא קורה.</li></ul></div></div></details><details class="fq"><summary><span class="fq-q">רגע, אם אנחנו משלמים כבר שנים, למה שאצלכם פתאום יהיה משתלם יותר?</span><span class="fq-i" aria-hidden="true"></span></summary><div class="fq-a"><div><p>גם אם בהתחלה שילמתם מחיר נמוך מאוד, הוא קופץ עם הזמן. שוק הביטוח משתנה ומתחדש כל הזמן, ולכן מומלץ לבדוק כל כמה שנים.</p></div></div></details><details class="fq"><summary><span class="fq-q">אני מפחדת לגעת בביטוח. מה אם חס וחלילה יקרה משהו בדיוק באמצע המעבר?</span><span class="fq-i" aria-hidden="true"></span></summary><div class="fq-a"><div><p>במעבר אין אפילו דקה שבה אתם לא מבוטחים. ברוב המקרים אנחנו גם נותנים חודש ללא תשלום, כדי שלא תשלמו כפול, אפילו לא חודש אחד.</p></div></div></details><details class="fq"><summary><span class="fq-q">ואם בינתיים היו לנו בעיות רפואיות, עדיין אפשר לעבור לביטוח אחר?</span><span class="fq-i" aria-hidden="true"></span></summary><div class="fq-a"><div><p>זה מאוד תלוי בבעיה. יש בעיות רפואיות שאפשר לעבור איתן, לפעמים עם תוספת קטנה למחיר, של שקלים בודדים.</p></div></div></details><details class="fq"><summary><span class="fq-q">אין לנו משכנתא. בשביל מה אנחנו צריכים בכלל ביטוח חיים?</span><span class="fq-i" aria-hidden="true"></span></summary><div class="fq-a"><div><p>חשוב מאוד שלמשפחה יהיה ביטוח חיים: בפטירה, לא עלינו, של אחד מבני הזוג, המשפחה מקבלת לחשבון סכום שנקבע מראש, ומדובר במיליוני שקלים.</p><p>ועוד דבר חשוב: גם אם עכשיו אין לכם משכנתא, אפשר לעשות ביטוח חיים כבר עכשיו, ולשעבד אותו לבנק בהמשך, כשתיקחו משכנתא או הלוואה.</p></div></div></details><details class="fq"><summary><span class="fq-q">כמה בכלל עולה ביטוח חיים לזוג רגיל עם ילדים?</span><span class="fq-i" aria-hidden="true"></span></summary><div class="fq-a"><div><p>לדוגמה: ביטוח חיים על 1,000,000 ₪ לזוג בני 30 עולה 27 ₪ בלבד (כמובן, לא מעשנים ובריאים). זה מחיר מצחיק שלא יחזור. אל תגידו לא ידענו!</p></div></div></details><details class="fq"><summary><span class="fq-q">ואם ברוך השם לא קורה כלום, כל הכסף ששילמנו פשוט הולך?</span><span class="fq-i" aria-hidden="true"></span></summary><div class="fq-a"><div><p>על זה אנחנו מתפללים: שלא נצטרך להגיע לזה לעולם, ושנהיה בריאים תמיד, אמן! זו השתדלות בסיסית עבור המשפחה.</p></div></div></details><details class="fq"><summary><span class="fq-q">ומה עם ארגוני עזרה הדדית כמו ערבים? זה לא נותן את אותו מענה?</span><span class="fq-i" aria-hidden="true"></span></summary><div class="fq-a"><div><p>ערבים ותוכניות דומות חשובים מאוד, בלי קשר. הם מעניקים כמאתיים אלף ש״ח לחתונות הילדים. אבל מה עם הוצאות הדיור? הוצאות המחיה? ההוצאות השוטפות? והרצון לשמור על רמת החיים שהמשפחה רגילה אליה?</p></div></div></details><details class="fq"><summary><span class="fq-q">בכמה כסף באמת אפשר לחסוך אם מחליפים ביטוח?</span><span class="fq-i" aria-hidden="true"></span></summary><div class="fq-a"><div><p>מאות ועד אלפי שקלים בשנה, וכשמכפילים את זה בכל שנות המשכנתא, הסכום מצטבר מאוד.</p><p>לדוגמה, לאחרונה הורדנו לזוג בני 29 שמבוטחים על 2 מיליון ₪ את המחיר מ־254 ₪ לחודש ל־68 ₪ בלבד. קחו מחשבון ותחשבו לבד כמה הם הרוויחו עד סיום המשכנתא, בעוד 22 שנה.</p></div></div></details></div></div>
+  </div>
+</section>
+
+<div class="night-zone">
+  <div class="ring rd" aria-hidden="true"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" stroke="#2F5D5F" stroke-dasharray="190 86.5"/></svg></div><div class="ring re" aria-hidden="true"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" stroke="#1FA79A" stroke-dasharray="120 156.5"/></svg></div>
+<section class="sec final">
+  <div class="wrap">
+    <div>
+      <h2>בדקתם לאחרונה?<br><span>תנו לנו לבדוק שוב.</span></h2>
+      <p>בדיקה מקיפה של כל התיק הביטוחי והפנסיוני, במתנה, בלי עלות ובלי התחייבות.</p>
+    </div>
+  </div>
+</section>
+<section class="checkform end" id="form">
+  <div class="wrap">
+    <div class="list">
+      <h3>מה נבדוק לכם</h3>
+      <ul class="rows" id="scanRows">
+        <li><span class="tick"><svg viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="2.6"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span><span>כפל ביטוחי</span><span class="q">שלא תשלמו פעמיים</span></li>
+        <li><span class="tick"><svg viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="2.6"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span><span>דמי ניהול</span><span class="q">פנסיה והשתלמות</span></li>
+        <li><span class="tick"><svg viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="2.6"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span><span>כיסוי מותאם</span><span class="q">לכם ולמשפחה</span></li>
+        <li><span class="tick"><svg viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="2.6"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span><span>חיסכון לכל ילד</span><span class="q">הכוונה מלאה</span></li>
+      </ul>
+    </div>
+    <div class="fm">
+      <form id="lead1" name="lead" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+        <input type="hidden" name="form-name" value="lead"><p hidden><label>לא למלא: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <div class="field"><label for="n1">שם</label><input id="n1" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="p1">טלפון</label><input id="p1" name="phone" type="tel" inputmode="tel" autocomplete="tel" required></div>
+        <div class="field"><label for="e1">מייל</label><input id="e1" name="email" type="email" autocomplete="email" required></div>
+        <div class="field"><label for="i1">תעודת זהות <span class="opt">(אופציונלי)</span></label><input id="i1" name="tz" inputmode="numeric" maxlength="9" autocomplete="off" aria-describedby="i1h"><p class="tz-hint" id="i1h">מילוי תעודת זהות מאפשר לנו לעבור כבר על התיק, כך שהנציג שיתקשר אליכם יגיע כבר עם נתונים מתוצאות הבדיקה.</p></div>
+        <p class="err" aria-live="polite"></p>
+        <button class="btn" type="submit">עכשיו זה בטוח</button>
+        <p class="fine">נציג חוזר אליכם בהקדם, ללא שום התחייבות מצידכם.</p>
+      </form>
+    </div>
+  </div>
+</section>
+</div>
+<div class="halo" id="halo" aria-hidden="true"></div>
+<div class="pframe" aria-hidden="true"></div>
+<div class="warp" id="warp" hidden aria-hidden="true">
+  <svg preserveAspectRatio="none"><defs>
+    <linearGradient id="wg" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1FA79A"/><stop offset="1" stop-color="#2DBE6C"/></linearGradient>
+  </defs>
+  <rect class="sel" x="0" y="0" width="0" height="0"/>
+  <g class="glow"><path class="ab" fill="none" stroke="url(#wg)" stroke-linecap="round"/>
+  <path class="ah" fill="#2DBE6C" stroke="#2DBE6C" stroke-linejoin="round"/></g></svg>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><b>שמואל זייבלד, ביטוח ופיננסים</b> מבית נתי קלמן סוכנות לביטוח · <span class="tag">אצלנו, תהיו בטוחים.</span></span>
+    <span dir="ltr">02-59-40-620</span>
+  </div>
+</footer>
+
+<script>
+try{if('scrollRestoration' in history)history.scrollRestoration='manual';if(location.hash){history.replaceState(null,'',location.pathname+location.search)}}catch(e){}
+window.scrollTo(0,0);
+(function(){
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var words=['היום','מחר','מחרתיים','ביום ראשון','בשבוע הבא','אחרי החגים','בחודש הבא','זהו סופית<span class="tm">מחר</span>'];
+  var cal=document.getElementById('cal'),pages=[];
+  for(var i=words.length-1;i>=0;i--){
+    var d=document.createElement('div');d.className='page';
+    d.innerHTML='<div class="bar"></div><div class="word'+(i===words.length-1?' last':'')+'">'+(i===words.length-1?words[i]:words[i].replace(' ','<br>'))+'</div><div class="task">'+(i===words.length-1?'לבדוק את הביטוח':'<s>לבדוק את הביטוח</s>')+'</div>';
+    if(i===0)d.querySelector('.task').innerHTML='לבדוק את הביטוח';
+    cal.appendChild(d);pages[i]=d;
+  }
+  var intro=document.getElementById('intro'),delay=document.getElementById('delay'),ask=document.getElementById('ask'),
+      hint=document.getElementById('hint'),
+      q=ask.querySelector('.q'),h1=ask.querySelector('h1'),lede=ask.querySelector('.lede'),row=ask.querySelector('.row');
+  function cl(v){return v<0?0:v>1?1:v}
+  function seg(p,a,b){return cl((p-a)/(b-a))}
+  function ease(t){return 1-Math.pow(1-t,3)}
+  var flipA=.08,flipB=.58,n=words.length-1,step=(flipB-flipA)/n;
+  function render(p){
+    for(var k=0;k<n;k++){
+      var t=ease(seg(p,flipA+k*step,flipA+(k+1)*step));
+      var side=(k%2?1:-1);
+      pages[k].style.transform='translateY('+(-t*120)+'%) rotateX('+(t*-75)+'deg) rotateZ('+(side*t*14)+'deg)';
+      pages[k].style.opacity=1-seg(t,.55,1);
+    }
+    var out=ease(seg(p,.68,.8));
+    delay.style.transform='scale('+(1-out*.35)+') translateY('+(-out*12)+'vh)';
+    delay.style.opacity=1-out;
+    var inn=ease(seg(p,.74,.9));
+    h1.style.transform='scale('+(0.55+inn*.45)+')';h1.style.opacity=inn;
+    q.style.transform='rotate('+((1-ease(seg(p,.84,.96)))*-25)+'deg)';
+    var tail=ease(seg(p,.88,.98));
+    var grow=1+.09*Math.min(1,Math.max(0,((window.__introRaw||0)-.72)/.28));
+    lede.style.opacity=tail;lede.style.transform='translateY('+((1-tail)*24)+'px) scale('+grow+')';
+    row.style.opacity=tail;row.style.transform='translateY('+((1-tail)*24)+'px)';
+    row.style.pointerEvents=tail>.5?'auto':'none';
+    hint.style.opacity=1-seg(p,.02,.1);
+  }
+  function progress(){
+    var r=intro.getBoundingClientRect(),total=intro.offsetHeight-window.innerHeight;
+    /* האנימציה מסתיימת ב-75% מהגלילה; השאר הוא זמן קריאה לפני קפיצת הדרך */
+    window.__introRaw=total>0?cl(-r.top/total):1;
+    return total>0?cl(-r.top/total/.75):1;
+  }
+  if(reduce){
+    intro.style.height='auto';intro.querySelector('.stage').style.position='relative';
+    render(1);
+  }else{
+    var ticking=false;
+    function onScroll(){if(!ticking){ticking=true;requestAnimationFrame(function(){ticking=false;render(progress())})}}
+    window.addEventListener('scroll',onScroll,{passive:true});window.addEventListener('resize',onScroll);
+    render(progress());
+  }
+
+  var rows=[].slice.call(document.querySelectorAll('#scanRows li'));
+  if('IntersectionObserver' in window&&!reduce){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){rows.forEach(function(r,i){setTimeout(function(){r.classList.add('done')},i*380)});io.disconnect()}})},{threshold:.4});
+    io.observe(document.getElementById('scanRows'));
+  }else rows.forEach(function(r){r.classList.add('done')});
+
+  function wire(id){
+    var f=document.getElementById(id); if(!f)return;
+    var err=f.querySelector('.err');
+    f.addEventListener('input',function(){err.textContent=''});
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var n=f.elements.name.value.trim(),p=f.elements.phone.value.replace(/[^\d]/g,''),m=f.elements.email.value.trim();
+      if(!n){err.textContent='כתבו את שמכם';f.elements.name.focus();return}
+      if(p.length<9){err.textContent='בדקו את מספר הטלפון';f.elements.phone.focus();return}
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(m)){err.textContent='בדקו את כתובת המייל';f.elements.email.focus();return}
+      if(f.elements.tz){var z=f.elements.tz.value.replace(/[^\d]/g,'');if(z){var ok=z.length>=5&&z.length<=9;if(ok){z=('000000000'+z).slice(-9);var s=0;for(var i=0;i<9;i++){var d=+z[i]*((i%2)+1);s+=d>9?d-9:d}ok=s%10===0}if(!ok){err.textContent='בדקו את מספר תעודת הזהות (אפשר גם להשאיר ריק)';f.elements.tz.focus();return}}}
+      var btn=f.querySelector('button');if(btn)btn.disabled=true;
+      fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()})
+        .then(function(r){if(!r.ok)throw 0;f.outerHTML='<div class="thanks"><h3>קיבלנו את הפנייה.</h3><p>הפרטים נשמרים במערכת, ונציג יחזור אליכם בהקדם.</p></div>'})
+        .catch(function(){if(btn)btn.disabled=false;err.textContent='משהו השתבש בשליחה. נסו שוב, או התקשרו אלינו.'});
+    });
+  }
+
+  [].slice.call(document.querySelectorAll('form input:not([type=hidden]):not([name=bot-field])')).forEach(function(inp){
+    var w=document.createElement('span');w.className='inwrap';inp.parentNode.insertBefore(w,inp);w.appendChild(inp);
+    w.insertAdjacentHTML('beforeend','<svg class="ink" aria-hidden="true"><rect x="0" y="0" width="100%" height="100%" rx="10" ry="10" pathLength="1"/></svg>');
+    function on(){w.classList.add('drawn')}
+    inp.addEventListener('focus',on);
+  });
+  wire('lead1');
+  /* מה אנחנו עושים: לחיצה על תחום פותחת פירוט */
+  (function(){var D=[{"t": "ביטוח חיים", "d": "ביטוח שמבטיח שאם יקרה למבוטח משהו, המשפחה תקבל סכום כסף שיאפשר לה להמשיך לחיות ברמת החיים שהורגלה בה, בלי לדאוג איך לסגור את החודש. אנחנו בודקים שסכום הביטוח מתאים לצרכים שלכם ושאתם לא משלמים עליו יותר מדי."}, {"t": "ביטוח בריאות", "d": "ביטוח פרטי שמשלים את מה שמגיע לכם מקופת החולים, ונותן גישה רחבה ומהירה יותר לטיפולים ולרופאים כשצריך. אנחנו בודקים שהכיסוי באמת מתאים לכם ולמשפחה, ושאין כפל עם ביטוחים שכבר יש לכם."}, {"t": "קרן פנסיה", "d": "חיסכון לטווח ארוך שמבטיח לכם הכנסה חודשית אחרי הפרישה, וכולל גם ביטוח למקרה שלא תוכלו לעבוד. אנחנו בודקים את דמי הניהול ואת מסלול ההשקעה, כי כל הפרש קטן מצטבר לסכום גדול עד הפרישה."}, {"t": "קרן השתלמות", "d": "חיסכון לטווח בינוני עם הטבת מס: אחרי כמה שנים אפשר למשוך את הכסף לכל מטרה, ברוב המקרים בלי מס על הרווחים. אנחנו בודקים את דמי הניהול ואת מסלול ההשקעה, כדי שהחיסכון יניב לכם יותר."}, {"t": "קופת גמל להשקעה", "d": "חיסכון גמיש לכל מטרה: מפקידים מתי ובכמה שרוצים, ואפשר למשוך את הכסף בכל זמן. מי שמשאיר את הכסף עד גיל 60 יכול לקבל אותו כקצבה חודשית בפטור ממס. אנחנו בודקים את דמי הניהול ואת מסלול ההשקעה, כדי שהכסף יעבוד בשבילכם."}, {"t": "פוליסת חיסכון", "d": "חיסכון דרך חברת ביטוח, בהפקדה חד־פעמית או חודשית ובלי תקרת הפקדה. הכסף נזיל ואפשר למשוך אותו בכל זמן, ואפשר לעבור בין מסלולי השקעה בלי לשלם מס על המעבר. אנחנו בודקים את דמי הניהול ומתאימים את המסלול לכם."}],box=document.getElementById('svcD');if(!box)return;var ts=[].slice.call(document.querySelectorAll('.svc-t')),cur=-1;
+    ts.forEach(function(t){t.addEventListener('click',function(){var i=+t.getAttribute('data-i');
+      if(cur===i){cur=-1;box.classList.remove('open');t.classList.remove('on');return}
+      cur=i;ts.forEach(function(x){x.classList.toggle('on',x===t)});
+      box.querySelector('h4').textContent=D[i].t;var p=box.querySelector('p');
+      if(D[i].d){p.className='';p.textContent=D[i].d}else{p.className='todo';p.textContent='להשלים: הסבר קצר משמואל'}
+      box.classList.add('open')})});
+    if(reduce){var c=document.querySelector('#check .wrap');if(c)c.classList.add('go')}
+  })();
+
+  /* הילה שעוקבת אחרי העכבר: בפתיחה ובאזור הכחול שאחריה עד סוף כרטיס הבדיקה */
+  (function(){var h=document.getElementById('halo'),cf=document.getElementById('check');if(!h)return;if(reduce){h.style.display='none';return}var tx=innerWidth/2,ty=innerHeight*.45,cx=tx,cy=ty;
+    window.addEventListener('mousemove',function(e){tx=e.clientX;ty=e.clientY});
+    (function lp(){cx+=(tx-cx)*.08;cy+=(ty-cy)*.08;h.style.setProperty('--hx',cx+'px');h.style.setProperty('--hy',cy+'px');h.style.opacity=cf.getBoundingClientRect().bottom>ty?1:0;requestAnimationFrame(lp)})()})();
+
+  /* איך זה עובד */
+  (function(){var sec=document.getElementById('steps');if(!sec)return;var li=[].slice.call(sec.querySelectorAll('.st-row li')),line=sec.querySelector('.st-line'),svg=sec.querySelector('.st-svg'),tr=sec.querySelector('.st-track'),pg=sec.querySelector('.st-prog'),hd=sec.querySelector('.st-head'),nums=[].slice.call(sec.querySelectorAll('.st-num'));
+    function f(){if(innerWidth<=900){li.forEach(function(l){l.classList.add('on')});return}
+      var stg=sec.querySelector('.st-stage'),sh=stg.offsetHeight,th=document.querySelector('.top').offsetHeight,stt=Math.max(th+8,th+(innerHeight-th-sh)/2);
+      sec.style.setProperty('--sth',sh+'px');sec.style.setProperty('--stt',stt+'px');
+      var W=line.clientWidth,r=sec.getBoundingClientRect(),run=sec.offsetHeight-sh,p=reduce?1:Math.min(1,Math.max(0,(stt-r.top)/run));
+      svg.setAttribute('viewBox','0 -1 '+W+' 2');var gr=document.getElementById('stg');gr.setAttribute('x1',0);gr.setAttribute('x2',W);tr.setAttribute('d','M'+W+',0 L0,0');
+      var q=Math.min(1,Math.max(0,(p-.03)/.78)),sg=Math.min(3,Math.floor(q*4)),fq=Math.min(1,Math.max(0,(q*4-sg-.35)/.65)),em=fq<.5?4*fq*fq*fq:1-Math.pow(-2*fq+2,3)/2,k=sg>=3?1:(sg+em)/3,x=W-W*k;pg.setAttribute('d','M'+W+',0 L'+x+',0');hd.style.left=x+'px';hd.style.opacity=p>0?1:0;
+      var cur=0;li.forEach(function(l,i){if(k>=i/3-.002)cur=i});li.forEach(function(l,i){l.classList.toggle('cur',i===Math.max(0,cur));l.classList.toggle('gone',i<cur)});
+      li.forEach(function(l,i){var cx=W-(i+.5)*W/4,on=x<=cx+2;nums[i].style.left=cx+'px';nums[i].classList.toggle('on',on);nums[i].classList.toggle('cur',on&&(i===3||x>W-(i+1.5)*W/4+2))});}
+    window.addEventListener('scroll',function(){requestAnimationFrame(f)},{passive:true});window.addEventListener('resize',f);f()})();
+
+  /* למה אנחנו: הברקה שעוקבת אחרי העכבר + קו ירוק סביב כל קלף */
+  (function(){var w=document.getElementById('why');if(!w)return;
+    w.addEventListener('mousemove',function(e){var r=w.getBoundingClientRect();w.style.setProperty('--mx',(e.clientX-r.left)+'px');w.style.setProperty('--my',(e.clientY-r.top)+'px');w.style.setProperty('--mo','1')});
+    w.addEventListener('mouseleave',function(){w.style.setProperty('--mo','.6')});
+    [].slice.call(w.querySelectorAll('.card')).forEach(function(c){c.insertAdjacentHTML('beforeend','<svg class="ink" aria-hidden="true"><rect x="1.5" y="1.5" width="calc(100% - 3px)" height="calc(100% - 3px)" rx="14" ry="14" pathLength="1"/></svg>')});
+  })();
+  /* סליידר חברות הביטוח */
+  (function(){var st=document.getElementById('coStrip');if(!st)return;var ind=st.querySelector('.co-ind'),its=[].slice.call(st.querySelectorAll('.co-i')),cur=0,hover=false;
+    function go(i){cur=i;var a=its[i],sr=st.getBoundingClientRect(),r=a.getBoundingClientRect();ind.style.left=(r.left-sr.left)+'px';ind.style.width=r.width+'px';its.forEach(function(x,j){x.classList.toggle('on',j===i)})}
+    its.forEach(function(it,i){it.addEventListener('mouseenter',function(){hover=true;go(i)})});
+    st.addEventListener('mouseleave',function(){hover=false});
+    setInterval(function(){if(!hover&&!reduce)go((cur+1)%its.length)},2200);
+    window.addEventListener('resize',function(){go(cur)});go(0);if(document.fonts)document.fonts.ready.then(function(){go(cur)});
+  })();
+
+  /* גלילה רוחבית */
+  (function(){var hs=document.getElementById('hs'),tr=document.getElementById('hsTrack');if(!hs||!tr)return;var dots=[].slice.call(hs.querySelectorAll('.hs-dots i'));
+    function f(){if(innerWidth<=900){tr.style.transform='';return}
+      var r=hs.getBoundingClientRect(),tot=hs.offsetHeight-innerHeight,p=tot>0?Math.min(1,Math.max(0,-r.top/tot)):0;
+      var k=Math.min(1,Math.max(0,(p-.1)/.82)),e=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2;
+      var N=tr.children.length-1;tr.style.transform='translateX('+(e*N*innerWidth)+'px)';dots.forEach(function(d,i){d.classList.toggle('on',i===Math.round(e*N))});}
+    window.addEventListener('scroll',function(){requestAnimationFrame(f)},{passive:true});window.addEventListener('resize',f);f()})();
+
+  /* מסגרת ירוקה אחת שממשיכה מהזום של הקהילות לאורך "בדקתי לאחרונה" ועולה יחד עם האזור בסופו */
+  (function(){
+    var pw=document.querySelector('.pain .wrap'),stg=document.querySelector('.comm-stage'),fr=document.querySelector('.pframe'),com=document.querySelector('.communities'),pain=document.querySelector('.pain'),zoom=document.querySelector('.zoom');if(!fr||!com||!pain||reduce)return;
+    function f(){
+      var c=com.getBoundingClientRect(),tot=com.offsetHeight-innerHeight,p=tot>0?-c.top/tot:0,pr=pain.getBoundingClientRect();
+      var on=p>=.94&&pr.bottom>0;
+      fr.style.visibility=on?'visible':'hidden';zoom.querySelector('path').style.strokeOpacity=(p>=.94)?0:1;stg.style.visibility=(p>=.96)?'hidden':'visible';
+      var lift=Math.max(0,innerHeight-pr.bottom);fr.style.transform='translateY('+(-lift)+'px)';
+      pw.style.opacity=p>=1?1:Math.min(1,Math.max(0,(p-.84)/.1));
+    }
+    window.addEventListener('scroll',function(){requestAnimationFrame(f)},{passive:true});window.addEventListener('resize',f);f();
+  })();
+
+  (function(){var pu=document.getElementById('punch');if(!pu)return;var a=pu.querySelector('.pa'),b=pu.querySelector('.pb');
+    function f(){var r=pu.getBoundingClientRect(),on=r.top<innerHeight*.42;if(on!==pu.classList.contains('swp')){pu.classList.toggle('swp',on);a.setAttribute('aria-hidden',on);b.setAttribute('aria-hidden',!on)}}
+    window.addEventListener('scroll',function(){requestAnimationFrame(f)},{passive:true});f()})();
+
+  (function(){var st=document.querySelector('.stack'),h=document.querySelector('.checks .chead');if(!st||!h)return;function f(){st.style.setProperty('--hh',h.offsetHeight+'px');document.documentElement.style.setProperty('--th',document.querySelector('.top').offsetHeight+'px')}f();window.addEventListener('resize',f);if(document.fonts)document.fonts.ready.then(f)})();
+
+  /* קהילות: עיגול ↔ מגן (מהלוגו), ובגלילה המגן שנבחר גדל וממלא את המסך */
+  (function(){
+    var sec=document.querySelector('.communities'); if(!sec)return;
+    var cs=[].slice.call(sec.querySelectorAll('.circle')),zoom=sec.querySelector('.zoom'),zp=zoom.querySelector('path');
+    var CIR=[[50,6],[74.3,6,94,25.7,94,50],[94,74.3,74.3,94,50,94],[25.7,94,6,74.3,6,50],[6,25.7,25.7,6,50,6]];
+    var SHD=[[50,7],[62,16,76,21,90,21],[90,62,74,84,50,95],[26,84,10,62,10,21],[24,21,38,16,50,7]];
+    function mix(k){var o=[];for(var i=0;i<CIR.length;i++){var a=CIR[i],b=SHD[i],r=[];for(var j=0;j<a.length;j++)r.push((a[j]+(b[j]-a[j])*k).toFixed(2));o.push(r)}
+      return 'M'+o[0].join(',')+' C'+o[1].join(',')+' C'+o[2].join(',')+' C'+o[3].join(',')+' C'+o[4].join(',')+' Z'}
+    var SH=mix(1);
+    /* צורת הזום: מגן (מנורמל לתיבה) שהופך למלבן, 8 קטעים */
+    var SHN=SHD.map(function(q){return q.map(function(v,j){return j%2?(v-7)/88*100:(v-10)/80*100})});
+    function lerp(a,b,t){return [a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t]}
+    function split(p0,c){var p1=[c[0],c[1]],p2=[c[2],c[3]],p3=[c[4],c[5]],a=lerp(p0,p1,.5),b=lerp(p1,p2,.5),d=lerp(p2,p3,.5),e=lerp(a,b,.5),f=lerp(b,d,.5),g=lerp(e,f,.5);return [[a[0],a[1],e[0],e[1],g[0],g[1]],[f[0],f[1],d[0],d[1],p3[0],p3[1]]]}
+    var Z8=[],cur=SHN[0];for(var q=1;q<5;q++){var sp=split(cur,SHN[q]);Z8.push(sp[0],sp[1]);cur=[SHN[q][4],SHN[q][5]]}
+    var RP=[[50,0],[75,0],[100,0],[100,100],[50,100],[0,100],[0,0],[25,0],[50,0]],R8=[];
+    for(var q=1;q<9;q++){var A=RP[q-1],B=RP[q];R8.push([A[0]+(B[0]-A[0])/3,A[1]+(B[1]-A[1])/3,A[0]+2*(B[0]-A[0])/3,A[1]+2*(B[1]-A[1])/3,B[0],B[1]])}
+    function zmix(t){var st0=lerp(SHN[0],[50,0],t),d='M'+st0[0].toFixed(2)+','+st0[1].toFixed(2);
+      for(var q=0;q<8;q++){var a=Z8[q],b=R8[q],o=[];for(var j=0;j<6;j++)o.push((a[j]+(b[j]-a[j])*t).toFixed(2));d+=' C'+o.join(',')}return d+' Z'}
+    zp.setAttribute('d',zmix(0));
+    cs.forEach(function(c){
+      var path=c.querySelector('.ring-s path');c._k=0;c._t=0;path.setAttribute('d',mix(0));
+      function anim(to){c._t=to;if(c._raf)return;(function st(){var d=c._t-c._k;if(Math.abs(d)<.005){c._k=c._t;path.setAttribute('d',mix(c._k));c._raf=0;return}
+        c._k+=d*.16;path.setAttribute('d',mix(c._k));c._raf=requestAnimationFrame(st)})()}
+      c._anim=anim;
+    });
+    var chosen=null;
+    function prog(){var r=sec.getBoundingClientRect(),tot=sec.offsetHeight-innerHeight;return tot>0?Math.min(1,Math.max(0,-r.top/tot)):0}
+    function S(e,a,b){return Math.min(1,Math.max(0,(e-a)/(b-a)))}
+    function update(){
+      var p=reduce?0:prog(),n=cs.length,last=cs[n-1],rr=sec.getBoundingClientRect(),tot=sec.offsetHeight-innerHeight;
+      var row=sec.querySelector('.circles'),stg0=sec.querySelector('.comm-stage'),rowOff=row.getBoundingClientRect().top+row.offsetHeight/2-stg0.getBoundingClientRect().top;
+      var s0=sec.offsetTop+rowOff-innerHeight*.5,s1=Math.max(s0+260,sec.offsetTop+tot*.38);
+      var wp=reduce?0:S(window.scrollY,s0,s1);
+      /* גל: כל עיגול הופך למגן וחוזר, אחד אחרי השני; האחרון נשאר מגן */
+      cs.forEach(function(c,i){
+        var k;
+        k=S(wp,i*.15,i*.15+.12);
+        if(Math.abs(k-c._k)>.001){c._k=k;c._t=k;c.querySelector('.ring-s path').setAttribute('d',mix(k))}
+        c.classList.toggle('sh',k>.5);
+      });
+      if(reduce)return;
+      var stg=sec.querySelector('.comm-stage'),st=stg.getBoundingClientRect(),r=last.getBoundingClientRect(),th=document.querySelector('.top').offsetHeight;
+      var z0=.4,k2=S(p,z0,.94),e3=1-Math.pow(1-k2,3);
+      var W=st.width,Hh=st.height,fx=16,fy=th+12,fw=W-32,fh=Hh-fy-16;
+      var rx=r.left-st.left+r.width*.1,ry=r.top-st.top+r.height*.07,rw=r.width*.8,rh=r.height*.88;
+      var x=rx+(fx-rx)*e3,y=ry+(fy-ry)*e3,w=rw+(fw-rw)*e3,h=rh+(fh-rh)*e3;
+      zoom.style.opacity=p>z0?1:0;
+      zoom.style.width=w+'px';zoom.style.height=h+'px';zoom.style.transform='translate('+x+'px,'+y+'px)';
+      zp.setAttribute('d',zmix(S(e3,.15,1)));zp.style.strokeWidth=(3+5*e3)+'px';
+    }
+    window.addEventListener('scroll',function(){requestAnimationFrame(update)},{passive:true});
+    window.addEventListener('resize',update);update();
+  })();
+
+
+  /* עיגולי הקהילות: עיגול אחר נדלק כל פעם, לסירוגין */
+  (function(){
+    var cs=[].slice.call(document.querySelectorAll('.communities .circle'));if(cs.length<2||reduce)return;
+    var i=-1;
+    setInterval(function(){
+      if(document.hidden)return;
+      cs.forEach(function(c){c.classList.remove('lit')});
+      var n;do{n=Math.floor(Math.random()*cs.length)}while(n===i);i=n;
+      if(!cs[i].classList.contains('sh'))cs[i].classList.add('lit');
+    },1300);
+  })();
+
+  /* מונים שעולים כשפס האמון נמצא בתוך המסך */
+  (function(){
+    var ns=[].slice.call(document.querySelectorAll('.stat .n[data-to]')),strip=document.querySelector('.trust'); if(!ns.length||!strip||reduce)return;
+    ns.forEach(function(n){n.textContent='0'});var started=false;
+    function fmt(to,v){return to>=1000?v.toLocaleString('en-US'):String(v)}
+    function check(){
+      if(started)return;var r=strip.getBoundingClientRect();
+      if(r.top<innerHeight*.78&&r.bottom>innerHeight*.15){started=true;var t0=performance.now(),D=2000;
+        (function st(now){var t=Math.min(1,(now-t0)/D),q=1-Math.pow(1-t,3);ns.forEach(function(el){var to=+el.getAttribute('data-to');el.textContent=fmt(to,Math.round(to*q))});if(t<1)requestAnimationFrame(st)})(t0)}
+    }
+    window.addEventListener('scroll',function(){requestAnimationFrame(check)},{passive:true});check();
+  })();
+
+  /* החץ: כשמגיעים לנקודה שמתחת לכפתור הוא מצטייר לבד (מתחיל לאט ומאיץ, הדף נגלל איתו) ומותח את הכרטיס; בגלילה למעלה הוא מתפרק לבד ברוורס */
+  (function(){
+    var btn=document.querySelector('.swap'),sec=document.getElementById('check'),card=sec&&sec.querySelector('.wrap');
+    if(!sec||!card)return;
+    var warp=document.getElementById('warp'),svg=warp.querySelector('svg'),body=warp.querySelector('.ab'),head=warp.querySelector('.ah'),sel=warp.querySelector('.sel'),grad=document.getElementById('wg');
+    var G=null,ticked=false,sw=26,prog=0,target=0,anim=null,lock=false;
+    function E(t){return t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2}
+    function Ein(t){return t*t*t}
+    function S(e,a,b){return Math.min(1,Math.max(0,(e-a)/(b-a)))}
+    function introEnd(){return intro.offsetTop+intro.offsetHeight-innerHeight}
+    function destY(){var th=document.querySelector('.top').offsetHeight,off=Math.max(th+16,th+(innerHeight-th-card.offsetHeight)/2);return card.getBoundingClientRect().top+window.scrollY-off}
+    function rows(){return []}
+    if(reduce){warp.hidden=true;return}
+    card.style.clipPath='inset(0 0 100% 100% round 22px)';
+    function block(ev){if(lock)ev.preventDefault()}
+    function blockKey(ev){if(lock&&[32,33,34,35,36,38,40].indexOf(ev.keyCode)>-1)ev.preventDefault()}
+    window.addEventListener('wheel',block,{passive:false});window.addEventListener('touchmove',block,{passive:false});window.addEventListener('keydown',blockKey);
+    function build(){
+      if(window.scrollY<introEnd())return false;
+      var sy=window.scrollY,W=innerWidth,H=innerHeight;sw=Math.max(22,Math.min(W,H)*.04);
+      var b=btn.getBoundingClientRect(),c=card.getBoundingClientRect();
+      var Sx=b.left+b.width/2,bb=b.bottom+sy,Sy=bb+Math.min(120,H*.13);
+      var R={left:c.left,right:c.right,top:c.top+sy,bottom:c.bottom+sy,width:c.width,height:c.height};
+      var top0=Sy-sw*3,hgt=R.bottom-top0+sw*4;
+      warp.style.top=top0+'px';warp.style.height=hgt+'px';svg.setAttribute('viewBox','0 '+top0+' '+W+' '+hgt);
+      grad.setAttribute('y1',Sy);grad.setAttribute('y2',R.top);
+      var D=Math.max(120,R.top-Sy),ax=R.right,ay=R.top;
+      body.setAttribute('d','M'+Sx+','+Sy+' C'+(Sx-W*.10)+','+(Sy+D*.45)+' '+(ax-W*.05)+','+(ay-D*.45)+' '+ax+','+ay);
+      body.setAttribute('stroke-width',sw);
+      var L=body.getTotalLength();body.style.strokeDasharray=L+' '+(L+10);
+      head.setAttribute('d','M'+(-sw*.55)+','+(-sw*.95)+' Q'+(sw*.7)+','+(-sw*.45)+' '+(sw*2.1)+',0 Q'+(sw*.7)+','+(sw*.45)+' '+(-sw*.55)+','+(sw*.95)+' Q'+(sw*.25)+',0 '+(-sw*.55)+','+(-sw*.95)+' Z');
+      head.setAttribute('stroke-width',sw*.28);
+      G={L:L,R:R,trig:bb-H*.28,y1:destY()};G.back=G.y1-H*.3;render(prog);warp.hidden=false;return true;
+    }
+    function render(t){
+      var R=G.R,L=G.L,td=S(t,0,.72),tr=E(S(t,.72,1)),L0=Math.min(L*.25,sw*3),pos=L0+(L-L0)*td,hx,hy,ang,fin=S(t,0,.06);
+      body.style.strokeDashoffset=L-pos;
+      var P3=body.getPointAtLength(L),P4=body.getPointAtLength(L-sw*.8),a1=Math.atan2(P3.y-P4.y,P3.x-P4.x)*180/Math.PI,a0=Math.atan2(R.height,-R.width)*180/Math.PI;
+      if(t<.72){var P=body.getPointAtLength(Math.max(.1,pos)),P2=body.getPointAtLength(Math.max(0,pos-sw*.8));hx=P.x;hy=P.y;ang=Math.atan2(P.y-P2.y,P.x-P2.x)*180/Math.PI}
+      else{hx=R.right-tr*R.width;hy=R.top+tr*R.height;ang=a1+(((a0-a1+540)%360)-180)*S(tr,0,.15)}
+      head.setAttribute('transform','translate('+hx+','+hy+') rotate('+ang+')');
+      head.style.opacity=t<=0.002?0:Math.min(fin,1-S(t,.97,1));
+      body.style.opacity=t<=0.002?0:Math.min(fin,1-S(t,.8,.97));
+      sel.style.opacity=t>.72?1-S(t,.95,1):0;sel.setAttribute('x',hx);sel.setAttribute('y',R.top);sel.setAttribute('width',Math.max(0,R.right-hx));sel.setAttribute('height',Math.max(0,hy-R.top));
+      card.style.clipPath=tr>=1?'':'inset(0 0 '+((1-tr)*100)+'% '+((1-tr)*100)+'% round 22px)';
+      if(t>=1&&!ticked){ticked=true;card.classList.add('go');card.classList.remove('hit');void card.offsetWidth;card.classList.add('hit');rows().forEach(function(r,i){setTimeout(function(){if(ticked)r.classList.add('done')},300+i*380)})}
+      if(t<1&&ticked){ticked=false;rows().forEach(function(r){r.classList.remove('done')})}
+    }
+    function play(to){
+      if(!G)return;target=to;if(anim)cancelAnimationFrame(anim);
+      var p0=prog,t0=performance.now(),fwd=to>p0,dur=(fwd?2300:1300)*Math.abs(to-p0),ys=window.scrollY,de=document.documentElement,prev=de.style.scrollBehavior;
+      if(dur<16){prog=to;render(prog);return}
+      if(fwd){lock=true;de.style.scrollBehavior='auto'}
+      /* המשך חלק של הגלילה: מתחילים במהירות שבה המשתמש גלל ומאטים עד הכרטיס, בלי עצירה וקפיצה */
+      var dist=Math.max(1,G.y1-ys),Dms=dur*.72,v0=Math.min(Math.max(0,vel),dist*1.6/Dms),m0=v0*Dms/dist;
+      function hn(t){return m0*(t-2*t*t+t*t*t)+(3*t*t-2*t*t*t)}
+      (function st(now){
+        var f=Math.min(1,(now-t0)/dur);
+        if(fwd){var a=f<.72?hn(f/.72):1;prog=p0<.72?p0+(.72-p0)*a+(f<.72?0:(to-.72)*S(f,.72,1)):p0+(to-p0)*f}
+        else prog=p0+(to-p0)*E(f);
+        if(fwd&&p0<.72){window.scrollTo(0,ys+dist*(f<.72?hn(f/.72):1))}
+        render(prog);
+        if(f<1)anim=requestAnimationFrame(st);else{anim=null;if(fwd){lock=false;de.style.scrollBehavior=prev}}
+      })(t0);
+    }
+    var lastY=window.scrollY,lastT=performance.now(),vel=0,ready=false,userAt=0;setTimeout(function(){ready=true;lastY=window.scrollY},600);
+    ['wheel','touchmove','keydown'].forEach(function(ev){window.addEventListener(ev,function(){userAt=performance.now()},{passive:true})});
+    window.addEventListener('scroll',function(){
+      var y=window.scrollY,down=y>lastY,nt=performance.now();if(!lock){var dv=(y-lastY)/Math.max(8,nt-lastT);vel=vel*.5+dv*.5}lastT=nt;lastY=y;
+      if(!ready||lock)return;
+      if(!G&&!build())return;
+      function snap(v){if(anim)cancelAnimationFrame(anim);anim=null;target=v;prog=v;render(v)}
+      var byUser=performance.now()-userAt<900;
+      if(target===0){if(y>G.y1+innerHeight*.3)snap(1);else if(down&&byUser&&y>=G.trig)play(1)}
+      else{if(y<G.trig-innerHeight)snap(0);else if(!down&&y<G.back)play(0)}
+    },{passive:true});
+    window.addEventListener('resize',function(){if(!lock){var keep=prog;G=null;if(build()){prog=keep;render(prog)}}});
+    if(document.fonts)document.fonts.ready.then(function(){if(G&&!lock){G=null;build();render(prog)}});
+    if(btn)btn.addEventListener('click',function(e){e.preventDefault();var fm=document.getElementById('form').querySelector('.wrap'),th=document.querySelector('.top').offsetHeight;window.scrollTo({top:fm.getBoundingClientRect().top+window.scrollY-th-24,behavior:'smooth'})});
+  })();
+  (function(){var q=document.getElementById('qm');if(!q||reduce)return;function f(){q.style.transform='rotate('+(Math.sin(window.scrollY/260)*14)+'deg)'}window.addEventListener('scroll',function(){requestAnimationFrame(f)},{passive:true});f()})();
+
+  if(window.matchMedia('(hover: none)').matches&&!reduce){var sb=document.querySelector('.swap');if(sb)setInterval(function(){sb.classList.toggle('alt')},2600)}
+
+  function rings(id,mode){
+    var c=document.getElementById(id); if(!c)return;
+    var ctx=c.getContext('2d');
+    function draw(){
+      var dpr=Math.min(window.devicePixelRatio||1,2),w=c.clientWidth,h=c.clientHeight;
+      c.width=Math.round(w*dpr);c.height=Math.round(h*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);
+      var R=Math.min(w,h);ctx.lineWidth=Math.max(28,w*.035);
+      ctx.strokeStyle='rgba(47,93,95,.5)';ctx.beginPath();ctx.arc(w*(mode?0.85:0.9),h*(mode?1.1:0.2),R*.5,0,Math.PI*2);ctx.stroke();
+      ctx.strokeStyle='rgba(31,167,154,.2)';ctx.beginPath();ctx.arc(w*(mode?0.1:0.08),h*(mode?-.2:1.0),R*.42,0,Math.PI*2);ctx.stroke();
+    }
+    draw();window.addEventListener('resize',draw);
+  }
+  var rs=[].slice.call(document.querySelectorAll('.ring'));
+  var C=2*Math.PI*44,fin=document.querySelector('.final');
+  rs.forEach(function(r){var c=r.querySelector('circle');r._c=c;r._base=parseFloat(c.getAttribute('stroke-dasharray'));r._hero=!!r.closest('.intro')});
+  function spin(){
+    var y=window.scrollY||0,vh=window.innerHeight;
+    var tHero=ease(seg(progress(),.7,1));
+    var fr=fin.getBoundingClientRect(),tFin=ease(cl((vh-fr.top)/(fr.height+vh*.2)));
+    rs.forEach(function(r,i){
+      var tm=reduce?0:performance.now()/1000,dir=i%2?-1:1;
+      r.style.transform='translate('+(Math.sin(tm*.45+i*1.7)*26)+'px,'+(Math.cos(tm*.36+i*2.3)*30)+'px) rotate('+(y*(i%2?-.06:.09)+i*40+dir*tm*(9+2*i))+'deg)';
+      var t=r._hero?tHero:tFin,L=r._base+(C-r._base)*t;
+      r._c.setAttribute('stroke-dasharray',L.toFixed(1)+' '+(C-L+.01).toFixed(1));
+    });
+  }
+  if(!reduce){window.addEventListener('resize',spin);(function amb(){spin();requestAnimationFrame(amb)})()}
+  spin();
+})();
+</script>
+<script>
+/* מקרים: זום אחד אחרי השני מימין לשמאל לפי הגלילה */
+(function(){var cs=[].slice.call(document.querySelectorAll('.pain .case'));if(!cs.length)return;
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){cs.forEach(function(c){c.style.setProperty('--z',1)});return}
+  var top=document.querySelector('.pain-top'),box=document.querySelector('.pain .cases'),pn=document.querySelector('.pain');
+  function f(){var vh=innerHeight,tb=top.getBoundingClientRect().bottom,p=(vh*.5-tb)/(vh*.2);
+    var lift=Math.max(0,vh-pn.getBoundingClientRect().bottom),fb=vh-26-lift,br=box.getBoundingClientRect();box.style.clipPath='inset(-60px -60px '+Math.max(0,br.bottom-fb)+'px -60px)';
+    var q=0;cs.forEach(function(c,i){var on=p>=.05+i*.45,was=c.classList.contains('on');if(on&&!was){c.style.transitionDelay=(q*.22)+'s';q++}else if(!on){c.style.transitionDelay='0s'}c.classList.toggle('on',on)})}
+  addEventListener('scroll',function(){requestAnimationFrame(f)},{passive:true});addEventListener('resize',f);f()})();
+/* המלצות: רצועה איטית ורציפה + גרירה ידנית */
+(function(){var t=document.querySelector('.tq-track'),m=document.querySelector('.tq-marq');if(!t)return;var it=[].slice.call(t.children);
+  it.forEach(function(n){var c=n.cloneNode(true);c.setAttribute('aria-hidden','true');t.appendChild(c)});
+  var x=0,v=0,hov=false,drag=false,lx=0,lt=0,SP=.45,red=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function setW(){return (t.scrollWidth+20)/2}
+  function wrap(){var w=setW();x=((x%w)+w)%w}
+  m.addEventListener('mouseenter',function(){hov=true});m.addEventListener('mouseleave',function(){hov=false});
+  m.addEventListener('pointerdown',function(e){drag=true;lx=e.clientX;lt=performance.now();v=0;m.classList.add('drag');m.setPointerCapture(e.pointerId)});
+  m.addEventListener('pointermove',function(e){if(!drag)return;var dx=e.clientX-lx,now=performance.now();x+=dx;v=dx/Math.max(1,now-lt)*16;lx=e.clientX;lt=now;wrap()});
+  function up(){if(!drag)return;drag=false;m.classList.remove('drag')}
+  m.addEventListener('pointerup',up);m.addEventListener('pointercancel',up);
+  (function lp(){if(!drag){if(Math.abs(v)>.05){x+=v;v*=.94}else if(!hov&&!red){x+=SP}wrap()}t.style.transform='translateX('+x.toFixed(1)+'px)';requestAnimationFrame(lp)})()})();
+</script>
+<script>
+/* איך זה עובד: כל גלילה (קטנה או גדולה) = צעד אחד */
+(function(){var sec=document.getElementById('steps');if(!sec)return;
+  var lock=false,lastEv=0,t0=0,busy=null;
+  function on(){return innerWidth>900&&!matchMedia('(prefers-reduced-motion: reduce)').matches}
+  function Y(i){var stg=sec.querySelector('.st-stage'),sh=stg.offsetHeight,stt=parseFloat(getComputedStyle(sec).getPropertyValue('--stt'))||0,run=sec.offsetHeight-sh,top=sec.getBoundingClientRect().top+scrollY,p=.03+.78*(i/4+.17);return Math.round(top-stt+run*p)}
+  function go(i){lock=true;t0=performance.now();var y=Y(i);window.scrollTo({top:y,behavior:'smooth'});clearTimeout(busy);busy=setTimeout(function(){window.scrollTo({top:y,behavior:'auto'})},900)}
+  function step(dir){var ys=[0,1,2,3].map(Y),y=scrollY;
+    if(y<ys[0]-2){return dir>0?{to:0,near:ys[0]-y}:null}
+    if(y>ys[3]+2){return dir<0?{to:3,near:y-ys[3]}:null}
+    var idx=0,best=1e9;ys.forEach(function(v,i){var d=Math.abs(v-y);if(d<best){best=d;idx=i}});
+    var to=idx+dir;if(to<0||to>3)return null;return {to:to,near:0}}
+  function handle(dir,e,amount){if(!on())return;var now=performance.now();
+    if(lock){var quiet=now-lastEv>220,long=now-t0>650;lastEv=now;if(quiet&&long){lock=false}else{if(inZone())e.preventDefault();return}}
+    lastEv=now;var s=step(dir);if(!s)return;
+    if(s.near>0&&s.near>Math.max(140,amount))return;
+    e.preventDefault();go(s.to)}
+  function inZone(){var y=scrollY;return y>=Y(0)-160&&y<=Y(3)+160}
+  addEventListener('wheel',function(e){if(Math.abs(e.deltaY)<1)return;handle(e.deltaY>0?1:-1,e,Math.abs(e.deltaY))},{passive:false});
+  addEventListener('keydown',function(e){var k=e.key,d=0;if(k==='ArrowDown'||k==='PageDown'||(k===' '&&!e.shiftKey))d=1;else if(k==='ArrowUp'||k==='PageUp'||(k===' '&&e.shiftKey))d=-1;if(!d)return;if(/input|textarea/i.test((e.target.tagName||'')))return;lock=false;handle(d,e,400)});
+  var ty=null;addEventListener('touchstart',function(e){ty=e.touches[0].clientY},{passive:true});
+  addEventListener('touchmove',function(e){if(ty===null||!on())return;if(lock&&inZone()){e.preventDefault();return}var dy=ty-e.touches[0].clientY;if(Math.abs(dy)<24)return;var s=step(dy>0?1:-1);if(!s||(s.near>0&&s.near>Math.abs(dy)+60))return;e.preventDefault();ty=null;lastEv=performance.now();go(s.to)},{passive:false});
+})();
+</script>
+<script>
+/* שאלות נפוצות: אחת פתוחה בכל פעם, עם אנימציית סגירה */
+(function(){var ds=[].slice.call(document.querySelectorAll('.fq'));
+  ds.forEach(function(d){var sm=d.querySelector('summary');sm.addEventListener('click',function(e){e.preventDefault();
+    if(d.open){d.classList.add('closing');var a=d.querySelector('.fq-a');a.style.gridTemplateRows='0fr';setTimeout(function(){d.open=false;a.style.gridTemplateRows='';d.classList.remove('closing')},420)}
+    else{ds.forEach(function(o){if(o!==d&&o.open){var oa=o.querySelector('.fq-a');oa.style.gridTemplateRows='0fr';setTimeout(function(){o.open=false;oa.style.gridTemplateRows=''},420)}});
+      var a=d.querySelector('.fq-a');a.style.gridTemplateRows='0fr';d.open=true;requestAnimationFrame(function(){requestAnimationFrame(function(){a.style.gridTemplateRows=''})})}})})})();
+</script>
+</body></html>
