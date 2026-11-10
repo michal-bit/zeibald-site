@@ -8,19 +8,21 @@
 <style>
 /* מבנה: פתיחה נעוצה שמתקדמת עם הגלילה: לוח שנה שדפיו נתלשים (היום→מחר→...→בשנה הבאה), מונה דחיות, ואז "אתם בטוחים?" ענק → כרטיס בדיקה+טופס → אמון → קהילות → כאב → מה בודקים → פנסיה/בריאות → למה אנחנו → חברות → תהליך → המלצות/שאלות → סיום */
 /* כלל החמישית: כל התוכן ב-60% האמצעיים (.wrap); רק פס עליון ופוטר ברוחב מלא */
-/* פונט: FbReforma Regular (לא צר) בכל האתר, משקל אחד. קובץ הווב (אחרי רכישת הרישיון) נכנס ל-fonts/FbReforma-Regular.woff2.
+/* פונט: Fb Reading Regular בכל האתר, משקל אחד. קובץ הווב (אחרי רכישת הרישיון) נכנס ל-fonts/FbReading-Regular.otf.
    עד אז: אם הפונט מותקן במחשב הוא נטען מקומית, ואחרת Noto Sans Hebrew. Playpen = כתב היד בשורה "לא היום, אולי מחר..." בלבד */
 @font-face{font-family:"OHYael";font-weight:400;font-style:normal;font-display:swap;
   src:url("hand-font.woff2") format("woff2"),local("OhYaelLeibushor 1.0 Regular"),local("OhYaelLeibushor1.0-Regular"),local("OhYaelLeibushor 1.0")}
-@font-face{font-family:"FbReforma";font-weight:400;font-style:normal;font-display:swap;
-  src:local("FbReforma-Regular"),local("FbReforma Regular"),local("FbReforma")}
+@font-face{font-family:"FbReading";font-weight:400;font-style:normal;font-display:swap;
+  src:url("fonts/FbReading-Regular.otf") format("opentype"),local("Fb Reading Regular"),local("FbReading-Regular")}
+@font-face{font-family:"FbReading";font-weight:400;font-style:normal;font-display:swap;unicode-range:U+0041-005A,U+0061-007A,U+00C0-00FF;
+  src:url("fonts/FbReadingEng-Regular.otf") format("opentype"),local("FbReadingEng-Regular")}
 :root{
   --content:60vw;
   --night:#131A46; --night-2:#1B2458; --deep:#0D1236; --ring:#2F5D5F;
   --blue:#005D94; --green:#63B242; --green-hi:#2DBE6C; --teal:#1FA79A;
   --ink:#14193A; --ink-2:#4A5070; --paper:#FFFFFF; --mist:#F2F6F4; --line:#DCE4E1; --on-night:#C9D1EE;
-  --display:"FbReforma","Noto Sans Hebrew",Arial,sans-serif;
-  --body:"FbReforma","Noto Sans Hebrew",Arial,sans-serif;
+  --display:"FbReading","Noto Sans Hebrew",Arial,sans-serif;
+  --body:"FbReading","Noto Sans Hebrew",Arial,sans-serif;
   --hand:"OHYael","Playpen Sans Hebrew","Noto Sans Hebrew",cursive;
   --r:14px;
   color-scheme:light;
@@ -296,6 +298,7 @@ footer .tag{color:var(--green)}
   .pain h2{position:static}
   .checkform .wrap{gap:0}
   .trust .wrap{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:36px;padding-block:64px}
+  .trust .stat:first-child{grid-column:1/-1}
   .stat+.stat{border-right:0}
   .pair,.pending .wrap{grid-template-columns:minmax(0,1fr)}
 }
@@ -382,14 +385,14 @@ footer .tag{color:var(--green)}
 .btn.shine:hover::after{left:130%}
 
 /* גלילה רוחבית: פנסיה ואז ביטוח חיים */
-.hs{position:relative;height:230vh;background:var(--mist)}
+.hs{position:relative;height:330vh;background:var(--mist)}
 .hs-stage::before,.hs-stage::after{content:"";position:absolute;border-radius:50%;pointer-events:none;border:clamp(26px,3vw,44px) solid rgba(31,167,154,.10)}
 .hs-stage::before{width:62vmin;height:62vmin;top:-20vmin;left:-18vmin}
 .hs-stage::after{width:46vmin;height:46vmin;bottom:-16vmin;right:-12vmin;border-color:rgba(45,190,108,.10)}
 .hs-stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:grid;grid-template-columns:minmax(0,100%);grid-template-rows:auto minmax(0,1fr) auto;padding-top:calc(var(--th,72px) + 2.5vh)}
 .hs-head{text-align:center}
 .hs-head h2{position:relative;z-index:1;white-space:nowrap;margin-bottom:2vh;color:var(--night);font-size:clamp(35.2px,3.43vw,59.84px);line-height:.92;letter-spacing:-.025em}
-.hs-track{display:flex;width:200vw;height:100%;will-change:transform}
+.hs-track{display:flex;width:300vw;height:100%;will-change:transform}
 .hs-panel{width:100vw;flex:none;display:grid;align-items:start;padding-top:1vh}
 .hs-panel{counter-increment:hp}
 .hs-track{counter-reset:hp}
@@ -408,6 +411,11 @@ footer .tag{color:var(--green)}
 .hs-img.graph::after{content:"";position:absolute;inset:0;background:radial-gradient(circle,rgba(170,255,190,.95) 0,rgba(90,230,140,.45) 9%,transparent 22%);background-size:100% 100%;mix-blend-mode:screen;animation:climb 6s ease-in-out infinite alternate}
 @keyframes climb{from{transform:translate(-36%,30%) scale(1)}to{transform:translate(30%,-34%) scale(1.25)}}
 .hs-img.shield img{object-fit:contain;animation:fl 4.5s ease-in-out infinite;transform-origin:55% 60%}
+.hs-img.health img{object-fit:cover!important;object-position:68% 50%;animation:hb 2.6s ease-in-out infinite;transform-origin:50% 50%}
+@keyframes hb{0%,100%{transform:scale(1)}12%{transform:scale(1.045)}24%{transform:scale(1.01)}36%{transform:scale(1.05)}55%{transform:scale(1)}}
+.hs-img.health::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 0,rgba(170,255,190,.55) 4%,transparent 9%);background-size:100% 100%;mix-blend-mode:screen;animation:ecg 2.6s linear infinite}
+@keyframes ecg{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+@media (prefers-reduced-motion:reduce){.hs-img.health img,.hs-img.health::after{animation:none}}
 .hs-img.shield::after{content:"";position:absolute;inset:-40%;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.5) 50%,transparent 60%);animation:sweep 3.2s ease-in-out infinite}
 @keyframes kb{from{transform:scale(1.14) translate(5%,-3.5%)}to{transform:scale(1.14) translate(-4%,4%)}}
 
@@ -557,6 +565,14 @@ html{scrollbar-width:auto;scrollbar-color:#3FAE4E transparent}
 .pain .cases{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:4vh;align-items:start}
 .pain .cases-h{grid-column:1/-1;text-align:center;margin:0 0 22px}
 .pain .cases{row-gap:2px!important}
+/* עיגולי הקהילות: כל פעם עיגול אחר נדלק וזורח */
+.circle{transition:transform .5s ease}
+.circle .ring-s path{transition:stroke .5s ease,stroke-width .5s ease,filter .5s ease}
+.circle.lit .ring-s path{stroke:var(--green-hi);stroke-width:4.2;filter:drop-shadow(0 0 6px rgba(45,190,108,.85)) drop-shadow(0 0 16px rgba(45,190,108,.45))}
+.circle.lit{transform:scale(1.05)}
+/* "אבל בדקתי": רווח מעל הטקסט כדי שיהיה זמן לקרוא לפני שהוא עולה */
+@media (min-width:901px){.pain-top .txt{padding-top:24vh}}
+
 .case .nis{font-size:.58em;vertical-align:.08em}
 .pain .case b{white-space:normal!important;overflow-wrap:anywhere}
 .pain .case span{overflow-wrap:anywhere}
@@ -624,9 +640,9 @@ html{scrollbar-width:auto;scrollbar-color:#3FAE4E transparent}
 </section>
 <section class="trust" aria-label="נתונים">
   <div class="wrap">
-    <div class="stat"><b><span class="n">מיליוני</span> שקלים</b><span>נחסכו ללקוחות</span></div>
-    <div class="stat"><b><span class="n">אלפי</span></b><span>לקוחות מרוצים</span></div>
-    <div class="stat"><b><span class="n">עשרות</span></b><span>מעסיקים וקהילות</span></div>
+    <div class="stat"><b><bdi dir="ltr">+₪<span class="n" data-to="48569365">48,569,365</span></bdi></b><span>נחסכו ללקוחות</span></div>
+    <div class="stat"><b><bdi dir="ltr">+<span class="n" data-to="3000">3,000</span></bdi></b><span>לקוחות מרוצים</span></div>
+    <div class="stat"><b><bdi dir="ltr">+<span class="n" data-to="30">30</span></bdi></b><span>מעסיקים וקהילות</span></div>
   </div>
 </section>
 
@@ -712,9 +728,22 @@ html{scrollbar-width:auto;scrollbar-color:#3FAE4E transparent}
           <div class="hs-img shield"><img src="shield-photo.jpg" alt="מגן"></div>
         </div>
       </article>
+      <article class="hs-panel">
+        <div class="wrap hs-in">
+          <div class="hs-txt">
+            <h3>ביטוח בריאות</h3>
+            <p>ביטוח בריאות הוא שם כללי למגוון כיסויים המגנים על המבוטח כאשר הוא או בני משפחתו נזקקים לטיפולים רפואיים. בין הכיסויים ניתן למנות כיסוי לניתוחים פרטיים, מדובר באירועים שלא מקבלים מענה בביטוח הממלכתי וגם לא בשב״ן.</p>
+            <p>לדוגמא: ניתוח פרטי בארץ – בחירת מנתח, מרדים, בית חולים ומועד הניתוח, ניתוח פרטי בחו״ל – ביצוע ניתוח בכל מקום בעולם לפי בחירת המבוטח, השתלות איברים – בחו״ל וטיפול/ניתוח מיוחד בחו״ל, מימון תרופות שלא בסל הבריאות, כיסוי לטכנולוגיות מתקדמות, טיפולים מחליפי ניתוח, כיסויים שונים אמבולטוריים.</p>
+            <p>ביטוח בריאות מספק מטריית הגנה ומוודא שאתם וילדיכם תהיו מכוסים מבחינה בריאותית עם אחריות מורחבת. בפוליסה ניתן מענה למגוון רחב של פתרונות לבעיות רפואה שונות בלי תלות ברפואה הציבורית.</p>
+            <p>במסגרת הקבוצה תקבלו הצעה זולה ומשתלמת שתלווה אתכם כל החיים.</p>
+            <p class="hl">והעיקר שתהיו בריאים עד 120 שנה!</p>
+          </div>
+          <div class="hs-img health"><img src="health-photo.jpg" alt="לב עם קו דופק"></div>
+        </div>
+      </article>
     </div>
-    <div class="wrap hs-foot"><p class="more"><b>עוד בתיק:</b> ביטוח בריאות<span class="dot">●</span>קרן השתלמות<span class="dot">●</span>קופת גמל להשקעה<span class="dot">●</span>פוליסת חיסכון</p>
-      <div class="hs-dots" aria-hidden="true"><i></i><i></i></div></div>
+    <div class="wrap hs-foot"><p class="more"><b>עוד בתיק:</b> קרן השתלמות<span class="dot">●</span>קופת גמל להשקעה<span class="dot">●</span>פוליסת חיסכון</p>
+      <div class="hs-dots" aria-hidden="true"><i></i><i></i><i></i></div></div>
   </div>
 </section>
 
@@ -722,7 +751,7 @@ html{scrollbar-width:auto;scrollbar-color:#3FAE4E transparent}
   <div class="wrap">
     <h2 class="why-title">למה אנחנו</h2>
     <div class="grid4">
-      <div class="card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#131A46" stroke-width="2.2"><path d="M4 17l5-5 4 3 7-8"/></svg></span><h3>המחיר הכי טוב בשוק</h3><p>לקוחות משווים מול הצעות אחרות, ורבים מהם חוזרים אלינו.</p></div>
+      <div class="card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#131A46" stroke-width="2.2"><path d="M4 17l5-5 4 3 7-8"/></svg></span><h3>המחיר הכי טוב בשוק</h3><p>לקוחות משווים מול הצעות אחרות בשוק, ובסוף חוזרים אלינו למחירים הכי משתלמים.</p></div>
       <div class="card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#131A46" stroke-width="2.2"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg></span><h3>מחלקת תביעות</h3><p>חברת ביטוח מתייחסת אחרת לסוכנות מובילה שמביאה לה לקוחות, מאשר ללקוח שעומד מולה לבד, ולכן ברגע התביעה אנחנו מדברים איתה בשבילכם.</p></div>
       <div class="card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#131A46" stroke-width="2.2"><circle cx="8" cy="9" r="3"/><circle cx="16" cy="9" r="3"/><path d="M2 20a6 6 0 0 1 12 0M10 20a6 6 0 0 1 12 0"/></svg></span><h3>מחיר קבוצתי</h3><p>קהילות, ארגונים ומעסיקים מקבלים מחיר שמחושב לפי הכוח של הקבוצה כולה.</p></div>
       <div class="card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#131A46" stroke-width="2.2"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><h3>שירות</h3><p>נציג אדיב עובר איתכם על כל סעיף בסבלנות, עד שאתם מבינים בדיוק על מה אתם משלמים.</p></div>
@@ -734,7 +763,7 @@ html{scrollbar-width:auto;scrollbar-color:#3FAE4E transparent}
 <section class="steps" id="steps" aria-label="איך זה עובד">
   <div class="st-stage">
     <div class="wrap">
-      <h2>איך זה עובד</h2>
+      <h2>אז מה צריך לעשות?</h2>
       <ol class="st-row">
         <li><span class="st-n">1</span><h3>משאירים פרטים</h3><p>שם, טלפון ומייל, וזה כל מה שצריך.</p></li>
         <li><span class="st-n">2</span><h3>מקבלים אישור</h3><p>מייל אוטומטי שהפנייה הגיעה אלינו.</p></li>
@@ -964,7 +993,7 @@ window.scrollTo(0,0);
     function f(){if(innerWidth<=900){tr.style.transform='';return}
       var r=hs.getBoundingClientRect(),tot=hs.offsetHeight-innerHeight,p=tot>0?Math.min(1,Math.max(0,-r.top/tot)):0;
       var k=Math.min(1,Math.max(0,(p-.1)/.82)),e=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2;
-      tr.style.transform='translateX('+(e*innerWidth)+'px)';dots.forEach(function(d,i){d.classList.toggle('on',i===(e>.5?1:0))});}
+      var N=tr.children.length-1;tr.style.transform='translateX('+(e*N*innerWidth)+'px)';dots.forEach(function(d,i){d.classList.toggle('on',i===Math.round(e*N))});}
     window.addEventListener('scroll',function(){requestAnimationFrame(f)},{passive:true});window.addEventListener('resize',f);f()})();
 
   /* מסגרת ירוקה אחת שממשיכה מהזום של הקהילות לאורך "בדקתי לאחרונה" ועולה יחד עם האזור בסופו */
@@ -1040,11 +1069,24 @@ window.scrollTo(0,0);
     window.addEventListener('resize',update);update();
   })();
 
+
+  /* עיגולי הקהילות: עיגול אחר נדלק כל פעם, לסירוגין */
+  (function(){
+    var cs=[].slice.call(document.querySelectorAll('.communities .circle'));if(cs.length<2||reduce)return;
+    var i=-1;
+    setInterval(function(){
+      if(document.hidden)return;
+      cs.forEach(function(c){c.classList.remove('lit')});
+      var n;do{n=Math.floor(Math.random()*cs.length)}while(n===i);i=n;
+      if(!cs[i].classList.contains('sh'))cs[i].classList.add('lit');
+    },1300);
+  })();
+
   /* מונים שעולים כשפס האמון נמצא בתוך המסך */
   (function(){
     var ns=[].slice.call(document.querySelectorAll('.stat .n[data-to]')),strip=document.querySelector('.trust'); if(!ns.length||!strip||reduce)return;
     ns.forEach(function(n){n.textContent='0'});var started=false;
-    function fmt(to,v){return to>=10000?v.toLocaleString('en-US'):String(v)}
+    function fmt(to,v){return to>=1000?v.toLocaleString('en-US'):String(v)}
     function check(){
       if(started)return;var r=strip.getBoundingClientRect();
       if(r.top<innerHeight*.78&&r.bottom>innerHeight*.15){started=true;var t0=performance.now(),D=2000;
